@@ -1,19 +1,25 @@
-import React, { Component } from "react";
-import { league } from "../players.json";
+import React, { Component } from 'react';
+import { league } from '../players.json';
+import './Players.css';
 
 const players = league.standard;
 
 class Players extends Component {
   render() {
-    let list = players.map(item => {
-      return (
-        <div className="list">
-          <p>{item.firstName + " " + item.lastName}</p>
-        </div>
-      );
-    });
-
-    return <div>{list}</div>;
+    return (
+      <div>
+        {players.map(item => {
+          return (
+            <div class='list-group col-6 offset-5'>
+              <a href='#' class='list-group-item list-group-item-action'>
+                <p>{item.lastName + ', ' + item.firstName}</p>
+                <p>{item.pos[0]}</p>
+              </a>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }
 
