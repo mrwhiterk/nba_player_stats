@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { league } from '../players.json';
+import { league } from '../../players.json';
 import './Players.css';
 
 const players = league.standard;
