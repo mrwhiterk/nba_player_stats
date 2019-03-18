@@ -8,7 +8,7 @@ This is our planning Document to conceptualize our project and create a roadmap 
 
 ### Needs
 
-We need to build out a few models/views to let a user view NBA teams, their rosters, and an information card about individual players. Users will also be able to compile players on their own custom teams and be able to view and store the teams they created. We'll need to include pages for logging in and viewing your profile which will include lists of your custom teams and and list of your favorite players.
+We need to build out a few views to let a user view the complete list of NBA players, and an information card about each player. Users will also be able to compile players on their own custom teams and be able to view and store the teams they created. We'll need to include pages for logging in and viewing your profile which will include lists of your custom teams and and list of your favorite players.
 
 ## Data Relationship
 
@@ -16,7 +16,7 @@ A user can have one account.
 The user can have many favorite players.
 The user can have many teams.
 The user can take a group of players from their favorite players list to compile a custom team.
-A team belongs to one user
+A team belongs to one user.
 
 ## Wireframe
 
