@@ -4,7 +4,7 @@ An application of compiled NBA data to help you track your favorite players and 
 
 ## Purpose
 
-This is our planning Document.
+This is our planning Document to conceptualize our project and create a roadmap to build it out.
 
 ### Needs
 
@@ -23,13 +23,13 @@ A team belongs to one user
 We wireframed basic layouts for our homepage, team and favorite player view, and player information cards. We will use these as a base to conceptualize our model and general layout of our application.
 
 Here is our ourpage
-![](homepage.jpg)
+![]('./projectHP.jpg')
 
 and a view of our player card, including our goals to add more features beyond the MVP
-![](playercard.jpg)
+![]('/.playercard.jpg')
 
-and the first look at how our models may render
-![](newmodels.jpg)
+and the first look at how our models may look
+![]('/.newmodels.jpg')
 
 # Deployment
 
