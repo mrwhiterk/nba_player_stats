@@ -47,7 +47,7 @@ We used surge to deploy this application.
 
 ## Contributing
 
-Please feel free to send us a pull request with details on what your code does, and we will probably add it to this project.
+Please feel free to send me a pull request with details on what your code does, and I will probably add it to this project.
 
 ## Authors
 
