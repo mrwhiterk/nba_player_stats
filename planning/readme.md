@@ -20,16 +20,7 @@ A team belongs to one user
 
 ## Wireframe
 
-We wireframed basic layouts for our homepage, team and favorite player view, and player information cards. We will use these as a base to conceptualize our model and general layout of our application.
-
-Here is our ourpage
-![]('./projectHP.jpg')
-
-and a view of our player card, including our goals to add more features beyond the MVP
-![]('/.playercard.jpg')
-
-and the first look at how our models may look
-![]('/.newmodels.jpg')
+We wireframed basic layouts for our homepage, team and favorite player view, and player information cards. We will use these as a base to conceptualize our model and general layout of our application. We included pictures of our wireframes drawn on a whiteboard.
 
 # Deployment
 
