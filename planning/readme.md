@@ -1,61 +1,32 @@
 # NBA Fantasy Manager
 
-A MERN application to track your favorite NBA players and create custom teams. This application will allow NBA application users to organize their player data for activities such as Fantasy sports, FanDuel, and various sports betting sites.
+An application of compiled NBA data to help you track your favorite players and create custom teams using those players.
 
 ## Purpose
 
-To plan out the front end of our NBA player tracking application.
+This is our planning Document to conceptualize our project and create a roadmap to build it out.
 
-### Prerequisites
+### Needs
 
-Install Node and npm
+We need to build out a few views to let a user view the complete list of NBA players, and an information card about each player. Users will also be able to compile players on their own custom teams and be able to view and store the teams they created. We'll need to include pages for logging in and viewing your profile which will include lists of your custom teams and and list of your favorite players.
 
-### Installing
+## Data Relationship
 
-A step by step series of examples that tell you how to get a development env running
+A user can have one account.
+The user can have many favorite players.
+The user can have many teams.
+The user can take a group of players from their favorite players list to compile a custom team.
+A team belongs to one user.
 
-```
-open up your project directory
-```
+## Wireframe
 
-```
-git clone https://github.com/mrwhiterk/nba_player_stats
-```
+We wireframed basic layouts for our homepage, team and favorite player view, and player information cards. We will use these as a base to conceptualize our model and general layout of our application. We included pictures of our wireframes drawn on a whiteboard.
 
-```
-cd nba_player_stats
-```
+# Deployment
 
-```
-npm install
-```
-
-```
-npm start
-```
-
-If done successfully create-react-app will redirect you to the landing page.
-
-## Deployment
-
-We used surge to deploy this application.
+We will be deploying our front end on surge.
 
 ## Built With
 
 - [create-react-app](https://www.npmjs.com/package/create-react-app) - The web framework used
 - [npm](https://www.npmjs.com/) - Dependency Management
-
-## Contributing
-
-Please feel free to send me a pull request with details on what your code does, and I will probably add it to this project.
-
-## Authors
-
-**Ryan White**
-**Joshua Vance**
-**Neftali Valdez**
-**Brian Curran**
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
