@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Players from '../Players/Players';
 import Header from '../Header/Header';
+import TeamList from '../TeamList/TeamList';
 import HomePhotos from '../HomePhotos/HomePhotos';
+import Players from '../Players/Players';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className='container-fluid'>
