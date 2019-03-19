@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Link, Switch } from 'react-router-dom';
 import Players from '../Players/Players';
 import HomePhotos from '../HomePhotos/HomePhotos';
-import TeamList from '../TeamList/TeamList';
+import MyPlayerList from '../MyPlayerList/MyPlayerList';
 import Home from '../Home/Home';
 
 class App extends Component {
@@ -35,15 +35,15 @@ class App extends Component {
               </li>
               <li class='nav-item'>
                 <a class='nav-link'>
-                  <Link to='/new'>
-                    <h3 className='home'>MyTeams</h3>
+                  <Link to='/my-players'>
+                    <h3 className='home'>MyPlayers</h3>
                   </Link>
                 </a>
               </li>
               <li class='nav-item active'>
                 <a class='nav-link'>
-                  <Link to='/new'>
-                    <h3 className='home'>MyPlayers</h3>
+                  <Link to='/teams'>
+                    <h3 className='home'>MyTeams</h3>
                   </Link>
                   <span class='sr-only' />
                 </a>
@@ -54,6 +54,7 @@ class App extends Component {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/players' render={() => <Players />} />
+          <Route path='/my-players' render={() => <MyPlayerList />} />
         </Switch>
       </div>
     );
