@@ -37,7 +37,7 @@ class Players extends Component {
         {this.getPlayers().map((item, i) => {
           return (
             <div className='list-group' key={i}>
-              <a href='#' class='list-group-item list-group-item-action'>
+              <a href='#' className='list-group-item list-group-item-action'>
                 <p>{item.lastName + ', ' + item.firstName}</p>
                 <p>{item.pos[0]}</p>
               </a>

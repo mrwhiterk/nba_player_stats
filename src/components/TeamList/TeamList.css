@@ -1,0 +1,18 @@
+:root {
+  --main-primary-color: #e94d6f;
+  --main-secondary-color: #375c8b;
+  --main-primary-highlight-color: pink;
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--main-primary-color);
+  margin-top: 1%;
+  color: white;
+}
+
+.list-group-item:hover {
+  background-color: var(--main-primary-highlight-color);
+}
