@@ -1,18 +1,16 @@
-
 import React, { Component } from "react";
 import "./App.css";
 import { Route, Link, Switch } from "react-router-dom";
 import Players from "../Players/Players";
 import HomePhotos from "../HomePhotos/HomePhotos";
-import TeamList from '../TeamList/TeamList';
-
+import TeamList from "../TeamList/TeamList";
 
 class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <nav class="navbar navbar-expand-lg">
-          <a className="navbar-brand" href="/">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a className="navbar-brand navbar" href="/">
             NBA Roster Manager
           </a>
           <button
