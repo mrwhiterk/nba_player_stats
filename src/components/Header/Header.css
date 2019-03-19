@@ -1,6 +1,11 @@
+:root {
+  --main-primary-color: #e94d6f;
+  --main-secondary-color: #375c8b;
+  --main-primary-highlight-color: pink;
+}
+
 .jumbotron-fluid {
-  color: #ffffff;
-  text-align: left;
-  background-color: #375c8b;
-  padding: 45px;
+  color: #fff;
+  background-color: var(--main-secondary-color);
+  padding-left: 8%;
 }
