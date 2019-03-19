@@ -10,7 +10,7 @@ class Players extends Component {
       <div>
         {players.map(item => {
           return (
-            <div class='list-group col-6 offset-5'>
+            <div class='list-group'>
               <a href='#' class='list-group-item list-group-item-action'>
                 <p>{item.lastName + ', ' + item.firstName}</p>
                 <p>{item.pos[0]}</p>
