@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { league } from '../../players.json';
 import './Players.css';
 import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
+import HomePhotos from '../HomePhotos/HomePhotos.js';
 
 const players = league.standard;
 
@@ -32,18 +33,21 @@ class Players extends Component {
 
   render() {
     return (
-      <div class='container col-6'>
-        <PlayerSearchForm searchPlayer={this.searchPlayer} />
-        {this.getPlayers().map((item, i) => {
-          return (
-            <div className='list-group' key={i}>
-              <a href='#' className='list-group-item list-group-item-action'>
-                <p>{item.lastName + ', ' + item.firstName}</p>
-                <p>{item.pos[0]}</p>
-              </a>
-            </div>
-          );
-        })}
+      <div className='row'>
+        <HomePhotos />
+        <div className='col-6'>
+          <PlayerSearchForm searchPlayer={this.searchPlayer} />
+          {this.getPlayers().map((item, i) => {
+            return (
+              <div className='list-group' key={i}>
+                <a href='#' className='list-group-item list-group-item-action'>
+                  <p>{item.lastName + ', ' + item.firstName}</p>
+                  <p>{item.pos[0]}</p>
+                </a>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

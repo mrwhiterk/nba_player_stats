@@ -29,6 +29,7 @@ const HomePhotos = () => {
     <div className='col-6'>
       {randomArray.map(imageUrl => (
         <img
+          alt='player'
           className='rounded mx-auto d-block'
           key={imageUrl}
           src={imageUrl}
