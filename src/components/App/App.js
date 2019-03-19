@@ -4,9 +4,9 @@ import Players from "../Players/Players";
 import Header from "../Header/Header";
 
 class App extends Component {
-  /*constructor(props) {
+  constructor(props) {
     super(props);
-  }*/
+  }
 
   render() {
     return (
