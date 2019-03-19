@@ -1,7 +1,28 @@
+:root {
+  --main-primary-color: #e94d6f;
+  --main-secondary-color: #375c8b;
+  --main-primary-highlight-color: pink;
+}
+
 img {
   width: 100%;
 }
 
 .container-fluid {
   padding: 0;
+}
+.navbar {
+  background: var(--main-secondary-color);
+  margin-bottom: 1%;
+}
+
+.home {
+  color: #fff;
+  margin-right: 5%;
+  display: inline-block;
+}
+.home:hover,
+.navbar:hover {
+  color: var(--main-primary-color);
+  text-decoration: none;
 }
