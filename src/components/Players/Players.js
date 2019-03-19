@@ -7,10 +7,10 @@ const players = league.standard;
 class Players extends Component {
   render() {
     return (
-      <div>
-        {players.map(item => {
+      <div class='container col-6'>
+        {players.map((item, i) => {
           return (
-            <div class='list-group'>
+            <div className='list-group' key={i}>
               <a href='#' class='list-group-item list-group-item-action'>
                 <p>{item.lastName + ', ' + item.firstName}</p>
                 <p>{item.pos[0]}</p>
