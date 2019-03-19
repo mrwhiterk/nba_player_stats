@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Players from '../Players/Players';
+import Header from '../Header/Header';
 
 class App extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className='container-fluid'>
+        <Header />
         <div className='row'>
           <div className='col-6'>
             <img src='https://cdn.nba.net/nba-drupal-prod/styles/landscape_1045w/s3/2018-08/leaguev3.jpeg?itok=b1Ef6wg9' />
