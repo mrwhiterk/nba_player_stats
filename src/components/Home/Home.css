@@ -1,0 +1,26 @@
+:root {
+  --main-primary-color: #e94d6f;
+  --main-secondary-color: #375c8b;
+  --main-primary-highlight-color: pink;
+}
+
+.card {
+  margin-top: 2%;
+  background-color: var(--main-primary-color);
+  color: white;
+}
+
+.card button {
+  background-color: var(--main-secondary-color);
+}
+
+.quick-actions {
+  display: flex;
+  top: 100px;
+  padding: 5px;
+  align-items: center;
+}
+
+.quick-actions>* {
+  margin: 5px;
+}
