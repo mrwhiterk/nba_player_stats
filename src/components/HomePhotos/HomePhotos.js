@@ -18,10 +18,8 @@ const randomArray = [];
 const getRandom = list => {
   while (list.length > 0) {
     const randomIndex = Math.floor(Math.random() * list.length);
-    console.log(list[randomIndex]);
     randomArray.push(list[randomIndex]);
     list.splice(randomIndex, 1);
-    console.log(list);
   }
 };
 
@@ -30,7 +28,11 @@ const HomePhotos = () => {
   return (
     <div className='col-6'>
       {randomArray.map(imageUrl => (
-        <img key={imageUrl} src={imageUrl} />
+        <img
+          className='rounded mx-auto d-block'
+          key={imageUrl}
+          src={imageUrl}
+        />
       ))}
     </div>
   );
