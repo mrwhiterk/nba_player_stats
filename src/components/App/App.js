@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Players from "../Players/Players";
+import Header from "../Header/Header";
 
 class App extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header />
         <Players />
       </div>
     );
