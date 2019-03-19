@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Link, Switch } from 'react-router-dom';
@@ -6,13 +7,18 @@ import HomePhotos from '../HomePhotos/HomePhotos';
 import MyPlayerList from '../MyPlayerList/MyPlayerList';
 import Home from '../Home/Home';
 
+
 class App extends Component {
   render() {
     return (
-      <div className='container-fluid'>
-        <nav class='navbar navbar-expand-lg'>
-          <Link to='/'>NBA Roster Manager</Link>
 
+      <div className="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <Link to='/'>
+            <span className="navbar-brand navbar">
+              NBA Roster Manager
+            </span>
+          </Link>
           <button
             class='navbar-toggler'
             type='button'

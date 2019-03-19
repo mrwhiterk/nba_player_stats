@@ -20,6 +20,13 @@ img {
   background: var(--main-secondary-color);
   margin-bottom: 1%;
 }
+.navbar.navbar-brand {
+  color: #fff;
+  margin-right: 5%;
+  display: inline-block;
+  font-size: 3em;
+  color: #fff;
+}
 
 .home {
   color: #fff;
@@ -28,7 +35,12 @@ img {
 }
 
 .home:hover,
-.navbar:hover {
+.navbar .navbar-brand:hover {
   color: var(--main-primary-color);
   text-decoration: none;
+
 }
+.navbar-toggler {
+  background-color: #fff;
+}
+
