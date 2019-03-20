@@ -9,6 +9,7 @@ import Home from "../Home/Home";
 import Team from "../Team/Team";
 import PlayerShow from "../PlayerShow/PlayerShow";
 import NewTeamForm from "../NewTeamForm/NewTeamForm";
+import EditTeamForm from "../EditTeamForm/EditTeamForm";
 
 class App extends Component {
   render() {
@@ -66,6 +67,10 @@ class App extends Component {
           <Route path="/team/:teamId" render={props => <Team {...props} />} />
           <Route path="/newTeam" render={props => <NewTeamForm {...props} />} />
           <Route path="/player-card" render={() => <PlayerShow />} />
+          <Route
+            path="/editTeam/:teamId"
+            render={props => <EditTeamForm {...props} />}
+          />
         </Switch>
       </div>
     );

@@ -3,6 +3,7 @@ import serverUrl from "../constants";
 import axios from "axios";
 
 import "./Team.css";
+import { Link } from "react-router-dom";
 
 export default class Team extends Component {
   constructor(props) {
@@ -22,7 +23,6 @@ export default class Team extends Component {
     axios
       .get(serverUrl + "/teams/" + this.props.match.params.teamId)
       .then(res => {
-        console.log(res.data);
         this.setState({ team: res.data });
       })
       .catch(err => {
@@ -38,8 +38,12 @@ export default class Team extends Component {
           <div className="card-body">
             <div class="row team-show-header">
               <h1 className="card-title">{this.state.team.fullName}</h1>
-              <h4>Created: {date.toDateString()}</h4>
+              <h4>{date && "Created:" + date.toDateString()}</h4>
             </div>
+            <Link to={`/editTeam/${this.state.team._id}`}>
+              <button class="btn btn-danger">Edit</button>
+            </Link>
+
             <h3 className="card-title">Roster</h3>
             <ul className="card-text">
               {this.state.team.teamRoster &&
