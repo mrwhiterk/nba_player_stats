@@ -22,7 +22,6 @@ export default class Team extends Component {
     axios
       .get(serverUrl + "/teams/" + this.props.match.params.teamId)
       .then(res => {
-        console.log(res.data);
         this.setState({ team: res.data });
       })
       .catch(err => {
@@ -38,7 +37,7 @@ export default class Team extends Component {
           <div className="card-body">
             <div class="row team-show-header">
               <h1 className="card-title">{this.state.team.fullName}</h1>
-              <h4>Created: {date.toDateString()}</h4>
+              <h4>{date && "Created:" + date.toDateString()}</h4>
             </div>
             <h3 className="card-title">Roster</h3>
             <ul className="card-text">
