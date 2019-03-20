@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import './MyPlayerList.css';
 import HomePhotos from '../HomePhotos/HomePhotos';
+import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
 
 class MyPlayerList extends Component {
   constructor(props) {
@@ -11,9 +12,12 @@ class MyPlayerList extends Component {
 
     this.state = {
       playerList: [],
+      searchTerm: '',
     };
 
     this.getPlayers = this.getPlayers.bind(this);
+    this.searchPlayer = this.searchPlayer.bind(this);
+    this.players = [];
   }
 
   getPlayers() {
@@ -27,16 +31,32 @@ class MyPlayerList extends Component {
       });
   }
 
+  searchPlayer(term) {
+    this.setState({ searchTerm: term.toLowerCase() });
+  }
+
   componentDidMount() {
     this.getPlayers();
   }
 
   render() {
+    if (this.state.searchTerm) {
+      this.players = this.state.playerList.filter(player => {
+        return (
+          player.lastName.toLowerCase().includes(this.state.searchTerm) ||
+          player.firstName.toLowerCase().includes(this.state.searchTerm)
+        );
+      });
+    } else {
+      this.players = this.state.playerList;
+    }
+
     return (
       <div className='row'>
         <HomePhotos />
         <div className='col-6'>
-          {this.state.playerList.map((player, i) => {
+          <PlayerSearchForm searchPlayer={this.searchPlayer} />
+          {this.players.map((player, i) => {
             return (
               <div className='list-group' key={i}>
                 <a href='#' className='list-group-item list-group-item-action'>
