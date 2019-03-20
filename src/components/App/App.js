@@ -8,8 +8,8 @@ import Home from '../Home/Home';
 import Team from '../Team/Team';
 import NewTeamForm from '../NewTeamForm/NewTeamForm';
 import EditTeamForm from '../EditTeamForm/EditTeamForm';
-import axios from 'axios';
-import serverUrl from '../constants';
+import PlayerShow from '../PlayerShow/PlayerShow';
+
 
 class App extends Component {
   render() {
@@ -46,6 +46,7 @@ class App extends Component {
                   </Link>
                 </a>
               </li>
+
               <li className='nav-item active'>
                 <a className='nav-link'>
                   <Link to='/my-teams'>
@@ -64,6 +65,10 @@ class App extends Component {
           <Route path='/my-teams' render={() => <MyTeamList />} />
           <Route path='/team/:teamId' render={props => <Team {...props} />} />
           <Route path='/newTeam' render={props => <NewTeamForm {...props} />} />
+          <Route
+            path='/playerShow/:personId'
+            render={props => <PlayerShow {...props} />}
+          />
           <Route
             path='/editTeam/:teamId'
             render={props => <EditTeamForm {...props} />}

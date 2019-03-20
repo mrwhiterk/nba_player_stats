@@ -1,0 +1,25 @@
+:root {
+  --main-primary-color: #e94d6f;
+  --main-secondary-color: #375c8b;
+  --main-primary-highlight-color: pink;
+}
+
+.card {
+  margin-top: 2%;
+  background-color: var(--main-primary-color);
+  color: white;
+  margin-left: 13%;
+}
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 3em;
+  margin-right: 10%;
+  align-items: center;
+  padding: 2%;
+}
+.content {
+  display: inline-grid;
+  grid-column-gap: 50px;
+  margin-left: 2%;
+}

@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import "./EditTeamForm.css";
-import axios from "axios";
-import serverUrl from "../constants";
+import React, { Component } from 'react';
+import './EditTeamForm.css';
+import axios from 'axios';
+import serverUrl from '../constants';
 
 export default class EditTeamForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      fullName: "",
+      fullName: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,7 +17,7 @@ export default class EditTeamForm extends Component {
 
   componentDidMount() {
     axios
-      .get(serverUrl + "/teams/" + this.props.match.params.teamId)
+      .get(serverUrl + '/teams/' + this.props.match.params.teamId)
       .then(res => {
         this.setState({ ...res.data });
       })
@@ -34,7 +34,7 @@ export default class EditTeamForm extends Component {
 
   updateTeam() {
     axios
-      .put(serverUrl + "/teams/" + this.state._id, this.state)
+      .put(serverUrl + '/teams/' + this.state._id, this.state)
       .then(function(response) {})
       .finally(() => {
         this.props.history.push(`/team/${this.state._id}`);
@@ -48,20 +48,20 @@ export default class EditTeamForm extends Component {
 
   render() {
     return (
-      <div class="container">
+      <div className='container'>
         <h1>Edit team</h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="title">Name</label>
+          <div className='form-group'>
+            <label htmlFor='title'>Name</label>
             <input
-              type="text"
-              name="fullName"
+              type='text'
+              name='fullName'
               onChange={this.handleChange}
-              className="form-control"
+              className='form-control'
               value={this.state.fullName}
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type='submit' className='btn btn-primary'>
             Submit
           </button>
         </form>
