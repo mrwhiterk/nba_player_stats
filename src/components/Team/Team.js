@@ -3,6 +3,7 @@ import serverUrl from "../constants";
 import axios from "axios";
 
 import "./Team.css";
+import { Link } from "react-router-dom";
 
 export default class Team extends Component {
   constructor(props) {
@@ -39,6 +40,10 @@ export default class Team extends Component {
               <h1 className="card-title">{this.state.team.fullName}</h1>
               <h4>{date && "Created:" + date.toDateString()}</h4>
             </div>
+            <Link to={`/editTeam/${this.state.team._id}`}>
+              <button class="btn btn-danger">Edit</button>
+            </Link>
+
             <h3 className="card-title">Roster</h3>
             <ul className="card-text">
               {this.state.team.teamRoster &&

@@ -7,6 +7,7 @@ import MyTeamList from "../MyTeamList/MyTeamList";
 import Home from "../Home/Home";
 import Team from "../Team/Team";
 import NewTeamForm from "../NewTeamForm/NewTeamForm";
+import EditTeamForm from "../EditTeamForm/EditTeamForm";
 class App extends Component {
   render() {
     return (
@@ -60,6 +61,10 @@ class App extends Component {
           <Route path="/my-teams" render={() => <MyTeamList />} />
           <Route path="/team/:teamId" render={props => <Team {...props} />} />
           <Route path="/newTeam" render={props => <NewTeamForm {...props} />} />
+          <Route
+            path="/editTeam/:teamId"
+            render={props => <EditTeamForm {...props} />}
+          />
         </Switch>
       </div>
     );
