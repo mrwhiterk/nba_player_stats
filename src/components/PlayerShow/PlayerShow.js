@@ -13,44 +13,50 @@ class PlayerShow extends Component {
       playerCard: []
     };
     this.getCard = this.getCard.bind(this);
-  }
-  getCard() {
-    axios
-      .get(serverUrl + "/players-card" + this.props.match.params.playersId)
-      .then(res => {
-        this.setState({ playerCard: res.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.players = [];
   }
   componentDidMount() {
     this.getCard();
   }
+  getCard() {
+    return players.find(player => {
+      return player.firstname || player.lastName;
+    });
+  }
+
   render() {
+    //return players.find((players, i) => {
     return (
-      <div className="row">
-        <div class="card w-75 offset</div>-1">
-          <div class="card-body">
-            <div class="player-title-show">
-              <h1 class="card-title">
-                {players.firstName +
-                  " " +
-                  players.lastName +
-                  " " +
-                  players.jersey}
-              </h1>
+      <span>
+        {players.map(function(player) {
+          return (
+            <div className="row">
+              <div class="card w-75 offset</div>-1">
+                <div class="card-body">
+                  <div class="player-title-show">
+                    <h1 class="card-title">
+                      {player.firstName +
+                        " " +
+                        player.lastName +
+                        " " +
+                        player.jersey}
+                    </h1>
+                  </div>
+                  <h2>Position: {player.pos}</h2>
+                  <h2>
+                    Height:{" "}
+                    {player.heightFeet + "'" + player.heightInches + '"'}
+                  </h2>
+                  <h2>Weight: {player.weightPounds}</h2>
+                  <h2>Years Pro: {player.yearsPro}</h2>
+                  <h2>College: {player.collegeName}</h2>
+                </div>
+              </div>
             </div>
-            <h2>Position: {players.pos}</h2>
-            <h2>
-              Height: {players.heightFeet + "'" + players.heightInches + '"'}
-            </h2>
-            <h2>Weight: {players.weightPounds}</h2>
-            <h2>Years Pro: {players.yearsPro}</h2>
-            <h2>College: {players.collegeName}</h2>
-          </div>
-        </div>
-      </div>
+          );
+        })}
+        )
+      </span>
     );
   }
 }

@@ -17,7 +17,6 @@ class MyPlayerList extends Component {
     };
 
     this.getPlayers = this.getPlayers.bind(this);
-    this.getCard = this.getCard.bind(this);
     this.searchPlayer = this.searchPlayer.bind(this);
     this.players = [];
   }
@@ -27,16 +26,6 @@ class MyPlayerList extends Component {
       .get(serverUrl + "/players")
       .then(res => {
         this.setState({ playerList: res.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-  getCard() {
-    axios
-      .get(serverUrl + "/player-card")
-      .then(res => {
-        this.setState({ players: res.data });
       })
       .catch(err => {
         console.log(err);
@@ -70,7 +59,7 @@ class MyPlayerList extends Component {
           {this.players.map((player, i) => {
             return (
               <div className="list-group" key={i}>
-                <Link to={`/players-card/${player._id}`}>
+                <Link to={`/player-card/${player._id}`}>
                   <button className="list-group-item list-group-item-action">
                     <p>{player.lastName + ", " + player.firstName}</p>
                     <p>{player.pos[0]}</p>
