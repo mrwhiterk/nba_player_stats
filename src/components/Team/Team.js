@@ -43,14 +43,13 @@ export default class Team extends Component {
   }
 
   render() {
-    const date = new Date(this.state.team.createdAt);
     return (
       <div className='row'>
         <div className='card w-75 offset-1'>
           <div className='card-body'>
+
             <div className='row team-show-header'>
               <h1 className='card-title'>{this.state.team.fullName}</h1>
-              <h4>{date && 'Created:' + date.toDateString()}</h4>
             </div>
             <Link to={`/editTeam/${this.state.team._id}`}>
               <button className='btn btn-danger'>Edit</button>
