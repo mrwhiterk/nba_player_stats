@@ -1,0 +1,15 @@
+:root {
+  --main-primary-color: #e94d6f;
+  --main-secondary-color: #375c8b;
+  --main-primary-highlight-color: pink;
+}
+
+.card {
+  margin-top: 2%;
+  background-color: var(--main-primary-color);
+  color: white;
+  margin-left: 13%;
+}
+.card-title {
+  text-align: center;
+}
