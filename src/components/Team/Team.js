@@ -13,6 +13,7 @@ export default class Team extends Component {
       team: {}
     };
     this.getTeam = this.getTeam.bind(this);
+    this.deleteTeam = this.deleteTeam.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +25,17 @@ export default class Team extends Component {
       .get(serverUrl + "/teams/" + this.props.match.params.teamId)
       .then(res => {
         this.setState({ team: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  deleteTeam() {
+    axios
+      .delete(serverUrl + "/teams/" + this.props.match.params.teamId)
+      .then(res => {
+        this.props.history.push("/my-teams");
       })
       .catch(err => {
         console.log(err);
@@ -43,6 +55,10 @@ export default class Team extends Component {
             <Link to={`/editTeam/${this.state.team._id}`}>
               <button class="btn btn-danger">Edit</button>
             </Link>
+
+            <button onClick={this.deleteTeam} class="btn btn-danger">
+              Delete
+            </button>
 
             <h3 className="card-title">Roster</h3>
             <ul className="card-text">
