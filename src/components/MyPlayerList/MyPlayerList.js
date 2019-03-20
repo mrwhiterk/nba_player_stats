@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import serverUrl from '../constants';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import serverUrl from "../constants";
+import axios from "axios";
 
-import './MyPlayerList.css';
-import HomePhotos from '../HomePhotos/HomePhotos';
-import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
+import "./MyPlayerList.css";
+import HomePhotos from "../HomePhotos/HomePhotos";
+import PlayerSearchForm from "../PlayerSearchForm/PlayerSearchForm";
 
 class MyPlayerList extends Component {
   constructor(props) {
@@ -12,17 +13,18 @@ class MyPlayerList extends Component {
 
     this.state = {
       playerList: [],
-      searchTerm: '',
+      searchTerm: ""
     };
 
     this.getPlayers = this.getPlayers.bind(this);
+    this.getCard = this.getCard.bind(this);
     this.searchPlayer = this.searchPlayer.bind(this);
     this.players = [];
   }
 
   getPlayers() {
     axios
-      .get(serverUrl + '/players')
+      .get(serverUrl + "/players")
       .then(res => {
         this.setState({ playerList: res.data });
       })
@@ -30,7 +32,16 @@ class MyPlayerList extends Component {
         console.log(err);
       });
   }
-
+  getCard() {
+    axios
+      .get(serverUrl + "/player-card")
+      .then(res => {
+        this.setState({ players: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
   searchPlayer(term) {
     this.setState({ searchTerm: term.toLowerCase() });
   }
@@ -52,17 +63,19 @@ class MyPlayerList extends Component {
     }
 
     return (
-      <div className='row'>
+      <div className="row">
         <HomePhotos />
-        <div className='col-6'>
+        <div className="col-6">
           <PlayerSearchForm searchPlayer={this.searchPlayer} />
           {this.players.map((player, i) => {
             return (
-              <div className='list-group' key={i}>
-                <a href='#' className='list-group-item list-group-item-action'>
-                  <p>{player.lastName + ', ' + player.firstName}</p>
-                  <p>{player.pos[0]}</p>
-                </a>
+              <div className="list-group" key={i}>
+                <Link to={`/players-card/${player._id}`}>
+                  <button className="list-group-item list-group-item-action">
+                    <p>{player.lastName + ", " + player.firstName}</p>
+                    <p>{player.pos[0]}</p>
+                  </button>
+                </Link>
               </div>
             );
           })}
@@ -73,3 +86,12 @@ class MyPlayerList extends Component {
 }
 
 export default MyPlayerList;
+/*
+  this.players.map((player, i) => {
+    return (
+<Link to={`/players/${player._id}`}>
+    <button className="list-group-item list-group-item-action">
+      <p className="list-group-item-name">{team.fullName}</p>
+    </button>
+  </div>
+              </Link > */

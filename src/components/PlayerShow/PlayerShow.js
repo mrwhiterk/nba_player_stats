@@ -12,11 +12,11 @@ class PlayerShow extends Component {
     this.state = {
       playerCard: []
     };
-    this.getPlayers = this.getPlayers.bind(this);
+    this.getCard = this.getCard.bind(this);
   }
-  getPlayers() {
+  getCard() {
     axios
-      .get(serverUrl + "/players")
+      .get(serverUrl + "/players-card" + this.props.match.params.playersId)
       .then(res => {
         this.setState({ playerCard: res.data });
       })
@@ -25,20 +25,22 @@ class PlayerShow extends Component {
       });
   }
   componentDidMount() {
-    this.getPlayers();
+    this.getCard();
   }
   render() {
     return (
       <div className="row">
         <div class="card w-75 offset</div>-1">
           <div class="card-body">
-            <h1 class="card-title">
-              {players.firstName +
-                " " +
-                players.lastName +
-                " " +
-                players.jersey}
-            </h1>
+            <div class="player-title-show">
+              <h1 class="card-title">
+                {players.firstName +
+                  " " +
+                  players.lastName +
+                  " " +
+                  players.jersey}
+              </h1>
+            </div>
             <h2>Position: {players.pos}</h2>
             <h2>
               Height: {players.heightFeet + "'" + players.heightInches + '"'}
