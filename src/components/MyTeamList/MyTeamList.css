@@ -16,3 +16,8 @@
 .list-group-item:hover {
   background-color: var(--main-primary-highlight-color);
 }
+
+a {
+  color: white !important;
+  text-decoration: none !important;
+}

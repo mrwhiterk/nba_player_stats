@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import serverUrl from '../constants';
-import axios from 'axios';
+import React, { Component } from "react";
+import serverUrl from "../constants";
+import axios from "axios";
 
-import './MyTeamList.css';
-import HomePhotos from '../HomePhotos/HomePhotos';
-import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
+import "./MyTeamList.css";
+import HomePhotos from "../HomePhotos/HomePhotos";
+import PlayerSearchForm from "../PlayerSearchForm/PlayerSearchForm";
+import { Link } from "react-router-dom";
 
 class MyTeamList extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class MyTeamList extends Component {
 
     this.state = {
       teamList: [],
-      searchTerm: '',
+      searchTerm: "",
     };
 
     this.getTeams = this.getTeams.bind(this);
@@ -22,7 +23,7 @@ class MyTeamList extends Component {
 
   getTeams() {
     axios
-      .get(serverUrl + '/teams')
+      .get(serverUrl + "/teams")
       .then(res => {
         this.setState({ teamList: res.data });
       })
@@ -49,16 +50,18 @@ class MyTeamList extends Component {
     }
 
     return (
-      <div className='row'>
+      <div className="row">
         <HomePhotos />
-        <div className='col-6'>
+        <div className="col-6">
           <PlayerSearchForm searchTeam={this.searchTeam} />
           {this.teams.map((team, i) => {
             return (
-              <div className='list-group' key={i}>
-                <a href='#' className='list-group-item list-group-item-action'>
-                  <p>{team.fullName}</p>
-                </a>
+              <div className="list-group" key={i}>
+                <button className="list-group-item list-group-item-action">
+                  <Link to={`/team/${team._id}`}>
+                    <p className="list-group-item-name">{team.fullName}</p>
+                  </Link>
+                </button>
               </div>
             );
           })}

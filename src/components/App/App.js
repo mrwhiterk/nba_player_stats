@@ -5,6 +5,7 @@ import Players from '../Players/Players';
 import MyPlayerList from '../MyPlayerList/MyPlayerList';
 import MyTeamList from '../MyTeamList/MyTeamList';
 import Home from '../Home/Home';
+import Team from '../Team/Team';
 
 class App extends Component {
   render() {
@@ -57,6 +58,7 @@ class App extends Component {
           <Route path='/players' render={() => <Players />} />
           <Route path='/my-players' render={() => <MyPlayerList />} />
           <Route path='/my-teams' render={() => <MyTeamList />} />
+          <Route path='/team/:teamId' render={props => <Team {...props} />} />
         </Switch>
       </div>
     );
