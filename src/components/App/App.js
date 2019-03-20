@@ -66,7 +66,10 @@ class App extends Component {
           <Route path="/my-teams" render={() => <MyTeamList />} />
           <Route path="/team/:teamId" render={props => <Team {...props} />} />
           <Route path="/newTeam" render={props => <NewTeamForm {...props} />} />
-          <Route path="/player-card" render={() => <PlayerShow />} />
+          <Route
+            path="/playerShow/:personId"
+            render={props => <PlayerShow {...props} />}
+          />
           <Route
             path="/editTeam/:teamId"
             render={props => <EditTeamForm {...props} />}

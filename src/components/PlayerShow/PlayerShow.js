@@ -9,62 +9,44 @@ const players = league.standard;
 class PlayerShow extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      playerCard: []
-    };
-    this.getCard = this.getCard.bind(this);
-    this.players = [];
+    this.state = {};
   }
+
   componentDidMount() {
-    this.getCard();
-  }
-  getCard() {
-    return players.find(player => {
-      return player.firstname || player.lastName;
+    this.setState({
+      ...players.find(
+        player => player.personId === this.props.match.params.personId
+      )
     });
   }
 
   render() {
-    //return players.find((players, i) => {
     return (
-      <span>
-        {players.map(function(player) {
-          return (
-            <div className="row">
-              <div class="card w-75 offset</div>-1">
-                <div class="card-body">
-                  <div class="player-title-show">
-                    <h1 class="card-title">
-                      {player.firstName +
-                        " " +
-                        player.lastName +
-                        " " +
-                        player.jersey}
-                    </h1>
-                  </div>
-                  <h2>Position: {player.pos}</h2>
-                  <h2>
-                    Height:{" "}
-                    {player.heightFeet + "'" + player.heightInches + '"'}
-                  </h2>
-                  <h2>Weight: {player.weightPounds}</h2>
-                  <h2>Years Pro: {player.yearsPro}</h2>
-                  <h2>College: {player.collegeName}</h2>
-                </div>
-              </div>
+      <div className="row">
+        <div class="card w-75 offset</div>-1">
+          <div class="card-body">
+            <div class="player-title-show">
+              <h1 class="card-title">
+                {this.state.firstName +
+                  " " +
+                  this.state.lastName +
+                  " " +
+                  this.state.jersey}
+              </h1>
             </div>
-          );
-        })}
-        )
-      </span>
+            <h2>Position: {this.state.pos}</h2>
+            <h2>
+              Height:{" "}
+              {this.state.heightFeet + "'" + this.state.heightInches + '"'}
+            </h2>
+            <h2>Weight: {this.state.weightPounds}</h2>
+            <h2>Years Pro: {this.state.yearsPro}</h2>
+            <h2>College: {this.state.collegeName}</h2>
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
 export default PlayerShow;
-
-/* Rookie Year
-Years Pro: (if ({players.yearsPro} === 0){
-                        return "rookie"
-    })else{players.yearsPro}</p>
-    */

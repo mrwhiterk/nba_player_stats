@@ -59,7 +59,7 @@ class MyPlayerList extends Component {
           {this.players.map((player, i) => {
             return (
               <div className="list-group" key={i}>
-                <Link to={`/player-card/${player._id}`}>
+                <Link to={`/playerShow/${player.personId}`}>
                   <button className="list-group-item list-group-item-action">
                     <p>{player.lastName + ", " + player.firstName}</p>
                     <p>{player.pos[0]}</p>
