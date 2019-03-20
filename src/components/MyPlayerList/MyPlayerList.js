@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import serverUrl from "../constants";
-import axios from "axios";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import serverUrl from '../constants';
+import axios from 'axios';
 
-import "./MyPlayerList.css";
-import HomePhotos from "../HomePhotos/HomePhotos";
-import PlayerSearchForm from "../PlayerSearchForm/PlayerSearchForm";
+import './MyPlayerList.css';
+import HomePhotos from '../HomePhotos/HomePhotos';
+import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
 
 class MyPlayerList extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class MyPlayerList extends Component {
 
     this.state = {
       playerList: [],
-      searchTerm: ""
+      searchTerm: '',
     };
 
     this.getPlayers = this.getPlayers.bind(this);
@@ -23,7 +23,7 @@ class MyPlayerList extends Component {
 
   getPlayers() {
     axios
-      .get(serverUrl + "/players")
+      .get(serverUrl + '/players')
       .then(res => {
         this.setState({ playerList: res.data });
       })
@@ -52,16 +52,16 @@ class MyPlayerList extends Component {
     }
 
     return (
-      <div className="row">
+      <div className='row'>
         <HomePhotos />
-        <div className="col-6">
+        <div className='col-6'>
           <PlayerSearchForm searchPlayer={this.searchPlayer} />
           {this.players.map((player, i) => {
             return (
-              <div className="list-group" key={i}>
+              <div className='list-group' key={i}>
                 <Link to={`/playerShow/${player.personId}`}>
-                  <button className="list-group-item list-group-item-action">
-                    <p>{player.lastName + ", " + player.firstName}</p>
+                  <button className='list-group-item list-group-item-action'>
+                    <p>{player.lastName + ', ' + player.firstName}</p>
                     <p>{player.pos[0]}</p>
                   </button>
                 </Link>
@@ -75,12 +75,3 @@ class MyPlayerList extends Component {
 }
 
 export default MyPlayerList;
-/*
-  this.players.map((player, i) => {
-    return (
-<Link to={`/players/${player._id}`}>
-    <button className="list-group-item list-group-item-action">
-      <p className="list-group-item-name">{team.fullName}</p>
-    </button>
-  </div>
-              </Link > */
