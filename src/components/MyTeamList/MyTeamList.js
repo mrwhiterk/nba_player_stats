@@ -59,13 +59,13 @@ class MyTeamList extends Component {
           </Link>
           {this.teams.map((team, i) => {
             return (
-              <div className="list-group" key={i}>
-                <button className="list-group-item list-group-item-action">
-                  <Link to={`/team/${team._id}`}>
+              <Link to={`/team/${team._id}`}>
+                <div className="list-group" key={i}>
+                  <button className="list-group-item list-group-item-action">
                     <p className="list-group-item-name">{team.fullName}</p>
-                  </Link>
-                </button>
-              </div>
+                  </button>
+                </div>
+              </Link>
             );
           })}
         </div>
