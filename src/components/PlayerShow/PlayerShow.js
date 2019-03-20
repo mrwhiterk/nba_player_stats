@@ -9,12 +9,14 @@ const players = league.standard;
 class PlayerShow extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      player: []
+    };
   }
 
   componentDidMount() {
     this.setState({
-      ...players.find(
+      player: players.find(
         player => player.personId === this.props.match.params.personId
       )
     });
@@ -23,25 +25,27 @@ class PlayerShow extends Component {
   render() {
     return (
       <div className="row">
-        <div class="card w-75 offset</div>-1">
-          <div class="card-body">
-            <div class="player-title-show">
-              <h1 class="card-title">
-                {this.state.firstName +
-                  " " +
-                  this.state.lastName +
-                  " " +
-                  this.state.jersey}
+        <div className="card w-75 offset</div>-1">
+          <div className="card-body">
+            <div className="player-title-show">
+              <h1 className="card-title">
+                {this.state.player.firstName + " " + this.state.player.lastName}
+                <h1> {this.state.player.jersey} </h1>
               </h1>
             </div>
-            <h2>Position: {this.state.pos}</h2>
-            <h2>
-              Height:{" "}
-              {this.state.heightFeet + "'" + this.state.heightInches + '"'}
-            </h2>
-            <h2>Weight: {this.state.weightPounds}</h2>
-            <h2>Years Pro: {this.state.yearsPro}</h2>
-            <h2>College: {this.state.collegeName}</h2>
+            <div className="content">
+              <h2>Position: {this.state.player.pos}</h2>
+              <h2>
+                Height:{" "}
+                {this.state.player.heightFeet +
+                  "'" +
+                  this.state.player.heightInches +
+                  '"'}
+              </h2>
+              <h2>Weight: {this.state.player.weightPounds}</h2>
+              <h2>Years Pro: {this.state.player.yearsPro}</h2>
+              <h2>College: {this.state.player.collegeName}</h2>
+            </div>
           </div>
         </div>
       </div>
