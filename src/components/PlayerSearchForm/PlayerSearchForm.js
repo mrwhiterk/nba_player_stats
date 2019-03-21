@@ -19,16 +19,20 @@ export default class PlayerSearchForm extends Component {
   }
 
   handleSubmit(evt) {
-    this.props.searchPlayer(this.state.name);
+    if (this.props.searchPlayer) {
+      this.props.searchPlayer(this.state.name);
+    } else if (this.props.searchTeam) {
+      this.props.searchTeam(this.state.name);
+    }
     evt.preventDefault();
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div class='md-form active-pink-2 mb-3 mt-0'>
+        <div className='md-form active-pink-2 mb-3 mt-0'>
           <input
-            class='form-control'
+            className='form-control'
             type='text'
             aria-label='Search'
             name='name'
