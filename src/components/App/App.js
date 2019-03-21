@@ -119,6 +119,36 @@ class App extends Component {
                   <span className="sr-only" />
                 </a>
               </li>
+              <li className="nav-item active">
+                <a className="nav-link">
+                  {this.state.isLoggedIn === false && (
+                    <Link to="/users/signup">
+                      <h3 className="home">Sign Up</h3>
+                    </Link>
+                  )}
+                  <span className="sr-only" />
+                </a>
+              </li>
+              <li className="nav-item active">
+                <a className="nav-link">
+                  {this.state.isLoggedIn === false && (
+                    <Link to="/users/login">
+                      <h3 className="home">Log In</h3>
+                    </Link>
+                  )}
+                  <span className="sr-only" />
+                </a>
+              </li>
+              <li className="nav-item active">
+                <a className="nav-link">
+                  {this.state.isLoggedIn === true && (
+                    <Link to="/users/logout">
+                      <h3 className="home">Log Out</h3>
+                    </Link>
+                  )}
+                  <span className="sr-only" />
+                </a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -194,15 +224,6 @@ const RemovePlayerFromList = props => {
     });
   return <div />;
 };
-
-// handleLogOut() {
-//   this.setState({
-//     email: '',
-//     password: '',
-//     isLoggedIn: false
-//   })
-//   localStorage.clear()
-// }
 
 const AddPlayerToList = props => {
   let playerMatch = playerData.find(

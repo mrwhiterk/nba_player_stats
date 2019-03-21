@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class LogInForm extends Component {
   render() {
+    console.log(this.props.isLoggedIn);
     return (
       <div>
         <h2>Log In</h2>
