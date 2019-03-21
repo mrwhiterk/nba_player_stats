@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import serverUrl from '../constants';
-import axios from 'axios';
-import ReactDOM from 'react-dom';
 import { league } from '../../players.json';
 import './PlayerShow.css';
 
@@ -25,8 +22,11 @@ class PlayerShow extends Component {
   }
 
   render() {
+<<<<<<< HEAD
+=======
     const attendedUni = this.state.player.collegeName;
     const rookie = this.state.player.yearsPro < 1;
+>>>>>>> upstream/master
     return (
       <div className='new'>
         <div className='thiscard w-75 offset</div>-1'>
@@ -70,6 +70,15 @@ class PlayerShow extends Component {
                 </div>
               </div>
               <div className='col-6'>
+<<<<<<< HEAD
+                <img
+                  className='playerPhoto'
+                  src={`https://nba-players.herokuapp.com/players/${
+                    this.state.player.lastName
+                  }/${this.state.player.firstName}`}
+                  alt='headshot'
+                />
+=======
                 <div className='playerPhoto'>
                   <img
                     src={`https://nba-players.herokuapp.com/players/${
@@ -77,6 +86,7 @@ class PlayerShow extends Component {
                     }/${this.state.player.firstName}`}
                   />
                 </div>
+>>>>>>> upstream/master
               </div>
             </div>
           </div>
