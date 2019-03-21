@@ -11,6 +11,7 @@ import EditTeamForm from '../EditTeamForm/EditTeamForm';
 import PlayerShow from '../PlayerShow/PlayerShow';
 import axios from 'axios';
 import serverUrl from '../constants';
+import TeamTable from '../TeamTable/TeamTable';
 
 import { league } from '../../players.json';
 const playerData = league.standard;
@@ -36,14 +37,14 @@ class App extends Component {
           <div className='collapse navbar-collapse' id='navbarNav'>
             <ul className='navbar-nav'>
               <li className='nav-item active'>
-                <div className='nav-link'>
+                <div className='nav-link col-6'>
                   <Link to='/players'>
                     <h3 className='home'>Browse</h3>
                   </Link>
                   <span className='sr-only'>(current)</span>
                 </div>
               </li>
-              <li className='nav-item'>
+              <li className='nav-items col-6'>
                 <div className='nav-link'>
                   <Link to='/my-players'>
                     <h3 className='home'>MyPlayers</h3>
@@ -62,6 +63,7 @@ class App extends Component {
             </ul>
           </div>
         </nav>
+
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/players' render={() => <Players />} />
@@ -85,11 +87,44 @@ class App extends Component {
             path='/addPlayerToList/:personId'
             render={props => <AddPlayerToList {...props} />}
           />
+          <Route
+            path='/addPlayerToTeam/:personId'
+            render={props => <TeamTable {...props} />}
+          />
+          <Route
+            path='/draftPlayerToTeam/:teamId/:id'
+            render={props => <AddPlayerToTeam {...props} />}
+          />
         </Switch>
       </div>
     );
   }
 }
+
+const AddPlayerToTeam = props => {
+  axios
+    .put(
+      serverUrl +
+        '/teams/' +
+        props.match.params.teamId +
+        '/add/' +
+        props.match.params.id
+    )
+    .then(res => {
+      setTimeout(function() {
+        if (res.data.error) {
+          alert(res.data.error);
+        } else {
+          alert(res.data.success);
+        }
+      }, 500);
+      props.history.push('/my-teams');
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  return <div />;
+};
 
 const RemovePlayerFromList = props => {
   axios

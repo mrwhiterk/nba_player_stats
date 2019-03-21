@@ -62,6 +62,9 @@ class MyPlayerList extends Component {
                 <Link to={`/playerShow/${player.personId}`}>
                   <button className='list-group-item list-group-item-action'>
                     <p>{player.lastName + ', ' + player.firstName}</p>
+                    <Link to={`/addPlayerToTeam/${player._id}`}>
+                      <button className='btn btn-info'>draft player</button>
+                    </Link>
                     <Link to={`/deletePlayer/${player._id}`}>
                       <button className='btn btn-info'>remove</button>
                     </Link>
