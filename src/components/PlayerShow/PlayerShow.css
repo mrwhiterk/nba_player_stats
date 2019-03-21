@@ -4,7 +4,7 @@
   --main-primary-highlight-color: pink;
 }
 
-.card {
+.thiscard {
   margin-top: 2%;
   background-color: var(--main-primary-color);
   color: white;
@@ -13,7 +13,7 @@
   margin-top: 3%;
   position: relative;
 }
-.card-title {
+.card-title-new {
   margin-left: 27%;
   font-size: 4em;
   align-items: center;

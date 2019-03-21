@@ -9,7 +9,8 @@ import Team from '../Team/Team';
 import NewTeamForm from '../NewTeamForm/NewTeamForm';
 import EditTeamForm from '../EditTeamForm/EditTeamForm';
 import PlayerShow from '../PlayerShow/PlayerShow';
-
+import axios from 'axios';
+import serverUrl from '../constants';
 
 class App extends Component {
   render() {
@@ -26,7 +27,8 @@ class App extends Component {
             data-target='#navbarNav'
             aria-controls='navbarNav'
             aria-expanded='false'
-            aria-label='Toggle navigation'>
+            aria-label='Toggle navigation'
+          >
             <span className='navbar-toggler-icon' />
           </button>
           <div className='collapse navbar-collapse' id='navbarNav'>

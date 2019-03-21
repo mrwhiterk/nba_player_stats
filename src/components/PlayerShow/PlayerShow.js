@@ -27,11 +27,11 @@ class PlayerShow extends Component {
     const image = this.props.photos;
     return (
       <div className='row'>
-        <div className='card w-75 offset</div>-1'>
+        <div className='thiscard w-75 offset</div>-1'>
           <div />
           <div className='card-body'>
             <div className='player-title-show'>
-              <h1 className='card-title'>
+              <h1 className='card-title-new'>
                 {this.state.player.firstName + ' ' + this.state.player.lastName}
               </h1>
             </div>

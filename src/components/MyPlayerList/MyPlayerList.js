@@ -6,7 +6,6 @@ import axios from 'axios';
 import './MyPlayerList.css';
 import HomePhotos from '../HomePhotos/HomePhotos';
 import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
-import { Link } from 'react-router-dom';
 
 class MyPlayerList extends Component {
   constructor(props) {
