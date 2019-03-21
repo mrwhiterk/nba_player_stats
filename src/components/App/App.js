@@ -10,6 +10,7 @@ import NewTeamForm from "../NewTeamForm/NewTeamForm";
 import EditTeamForm from "../EditTeamForm/EditTeamForm";
 import PlayerShow from "../PlayerShow/PlayerShow";
 import SignUpForm from "../SignUpForm/SignUpForm";
+import LogOut from "../LogOut/LogOut";
 import axios from "axios";
 import serverUrl from "../constants";
 
@@ -27,6 +28,7 @@ class App extends Component {
     this.handleLogIn = this.handleLogIn.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
   handleLogIn(e) {}
@@ -49,6 +51,15 @@ class App extends Component {
         this.setState({ isLoggedIn: true });
       })
       .catch(err => console.log(err));
+  }
+
+  handleLogOut() {
+    this.setState({
+      email: "",
+      password: "",
+      isLoggedIn: false
+    });
+    localStorage.clear();
   }
 
   render() {
@@ -132,7 +143,16 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route path="/users/logout" render={props => <LogOut {...props} />} /> */}
+          <Route
+            path="/users/logout"
+            render={props => (
+              <LogOut
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                handleLogOut={this.handleLogOut}
+              />
+            )}
+          />
         </Switch>
       </div>
     );
