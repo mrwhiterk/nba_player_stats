@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import serverUrl from '../constants';
-import axios from 'axios';
-import ReactDOM from 'react-dom';
 import { league } from '../../players.json';
 import './PlayerShow.css';
 
@@ -25,17 +22,21 @@ class PlayerShow extends Component {
   }
 
   render() {
-    const image = this.props.photos;
+<<<<<<< HEAD
+=======
+    const attendedUni = this.state.player.collegeName;
+    const rookie = this.state.player.yearsPro < 1;
+>>>>>>> upstream/master
     return (
-      <div className='row'>
+      <div className='new'>
         <div className='thiscard w-75 offset</div>-1'>
-          <div />
           <div className='card-body'>
             <div className='player-title-show'>
               <h1 className='card-title-new'>
                 {this.state.player.firstName + ' ' + this.state.player.lastName}
               </h1>
             </div>
+
             <div className='row'>
               <div className='col-6'>
                 <h2>Jersey Number: {this.state.player.jersey} </h2>
@@ -48,23 +49,46 @@ class PlayerShow extends Component {
                     '"'}
                 </h2>
                 <h2>Weight: {this.state.player.weightPounds}</h2>
-                <h2>Years Pro: {this.state.player.yearsPro}</h2>
-                <h2>College: {this.state.player.collegeName}</h2>
+                <div>
+                  {rookie ? (
+                    <h2>Years Pro: Rookie </h2>
+                  ) : (
+                    <h2>Years Pro: {this.state.player.yearsPro}</h2>
+                  )}
+                </div>
+                <div>
+                  {attendedUni ? (
+                    <h2> College: {this.state.player.collegeName}</h2>
+                  ) : (
+                    <h2 />
+                  )}
+                </div>
+                <div className='add-button'>
+                  <Link to={`/addPlayerToList/${this.state.player.personId}`}>
+                    <button className='btn btn-info'>Add to My List</button>
+                  </Link>
+                </div>
               </div>
               <div className='col-6'>
+<<<<<<< HEAD
                 <img
                   className='playerPhoto'
                   src={`https://nba-players.herokuapp.com/players/${
                     this.state.player.lastName
                   }/${this.state.player.firstName}`}
+                  alt='headshot'
                 />
+=======
+                <div className='playerPhoto'>
+                  <img
+                    src={`https://nba-players.herokuapp.com/players/${
+                      this.state.player.lastName
+                    }/${this.state.player.firstName}`}
+                  />
+                </div>
+>>>>>>> upstream/master
               </div>
             </div>
-          </div>
-          <div className='add-button'>
-            <Link to={`/addPlayerToList/${this.state.player.personId}`}>
-              <button className='btn btn-info'>Add to My List</button>
-            </Link>
           </div>
         </div>
       </div>

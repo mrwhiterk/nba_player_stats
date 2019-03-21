@@ -22,25 +22,19 @@ img {
 }
 .navbar.navbar-brand {
   color: #fff;
-  margin-right: 5%;
-  display: inline-block;
   font-size: 3em;
-  color: #fff;
 }
 
-.home {
-  color: #fff;
-  margin-right: 5%;
-  display: inline-block;
-}
-
-.home:hover,
+.navLinks:hover,
 .navbar .navbar-brand:hover {
   color: var(--main-primary-color);
   text-decoration: none;
-
 }
 .navbar-toggler {
   background-color: #fff;
 }
-
+.top-nav {
+  list-style-type: none;
+  display: flex;
+  padding-top: 8%;
+}

@@ -5,14 +5,25 @@
 }
 
 .list-group-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: var(--main-primary-color);
-  margin-top: 1%;
-  color: white;
+  margin-left: 2%;
 }
 
 .list-group-item:hover {
   background-color: var(--main-primary-highlight-color);
+}
+
+.double-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 2;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.playerName {
+  margin-left: 3%;
 }
