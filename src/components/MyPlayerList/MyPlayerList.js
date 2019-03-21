@@ -6,6 +6,7 @@ import axios from 'axios';
 import './MyPlayerList.css';
 import HomePhotos from '../HomePhotos/HomePhotos';
 import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
+import { Link } from 'react-router-dom';
 
 class MyPlayerList extends Component {
   constructor(props) {
@@ -62,6 +63,9 @@ class MyPlayerList extends Component {
                 <Link to={`/playerShow/${player.personId}`}>
                   <button className='list-group-item list-group-item-action'>
                     <p>{player.lastName + ', ' + player.firstName}</p>
+                    <Link to={`/deletePlayer/${player._id}`}>
+                      <button className='btn btn-info'>remove</button>
+                    </Link>
                     <p>{player.pos[0]}</p>
                   </button>
                 </Link>

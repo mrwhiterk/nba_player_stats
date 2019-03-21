@@ -16,6 +16,8 @@
   align-items: center;
   padding: 2%;
 }
+
 .rosterItem:hover {
   text-decoration: underline;
 }
+

@@ -55,17 +55,18 @@ class MyTeamList extends Component {
         <div className='col-6'>
           <PlayerSearchForm searchTeam={this.searchTeam} />
           <Link to='/newTeam'>
+
             <button className='btn btn-info'>Create New Team</button>
           </Link>
           {this.teams.map((team, i) => {
             return (
-              <Link to={`/team/${team._id}`}>
-                <div className='list-group' key={i}>
+              <div className='list-group' key={i}>
+                <Link to={`/team/${team._id}`}>
                   <button className='list-group-item list-group-item-action'>
                     <p className='list-group-item-name'>{team.fullName}</p>
                   </button>
-                </div>
-              </Link>
+                </Link>
+              </div>
             );
           })}
         </div>
