@@ -27,6 +27,7 @@ class PlayerShow extends Component {
   render() {
     const image = this.props.photos;
     const attendedUni = this.state.player.collegeName;
+    const rookie = this.state.player.yearsPro < 1;
     return (
       <div className='row'>
         <div className='thiscard w-75 offset</div>-1'>
@@ -49,7 +50,13 @@ class PlayerShow extends Component {
                     '"'}
                 </h2>
                 <h2>Weight: {this.state.player.weightPounds}</h2>
-                <h2>Years Pro: {this.state.player.yearsPro}</h2>
+                <div>
+                  {rookie ? (
+                    <h2>Years Pro: Rookie </h2>
+                  ) : (
+                    <h2>Years Pro: {this.state.player.yearsPro}</h2>
+                  )}
+                </div>
                 <div>
                   {attendedUni ? (
                     <h2> College: {this.state.player.collegeName}</h2>
