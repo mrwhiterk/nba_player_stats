@@ -67,6 +67,9 @@ class MyPlayerList extends Component {
                           {player.lastName + ', ' + player.firstName}
                         </h3>
                       </div>
+                      <Link to={`/addPlayerToTeam/${player._id}`}>
+                        <button className='btn btn-info'>draft player</button>
+                      </Link>
                       <Link to={`/deletePlayer/${player._id}`}>
                         <button className='btn btn-info'>remove</button>
                       </Link>
