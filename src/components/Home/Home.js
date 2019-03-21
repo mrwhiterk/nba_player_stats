@@ -25,7 +25,6 @@ export default class Home extends Component {
               </Link>
             </div>
           </div>
-          <div className="col-6">lkjslk;jflkgjsdlkjflgjldkrjgle</div>
         </div>
       </div>
     );

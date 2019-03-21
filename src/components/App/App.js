@@ -17,6 +17,40 @@ import { league } from "../../players.json";
 const playerData = league.standard;
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      isLoggedIn: false
+    };
+    this.handleLogIn = this.handleLogIn.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
+  }
+
+  handleLogIn(e) {}
+
+  handleInput(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  handleSignUp(e) {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3001/users/signup", {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(response => {
+        localStorage.token = response.data.token;
+        this.setState({ isLoggedIn: true });
+      })
+      .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="container-fluid">
@@ -92,9 +126,9 @@ class App extends Component {
             render={props => (
               <SignUpForm
                 {...props}
-                // isLoggedIn={this.state.isLoggedIn}
-                // handleInput={this.handleInput}
-                // handleSignUp={this.handleSignUp}
+                isLoggedIn={this.state.isLoggedIn}
+                handleInput={this.handleInput}
+                handleSignUp={this.handleSignUp}
               />
             )}
           />
@@ -116,29 +150,6 @@ const RemovePlayerFromList = props => {
     });
   return <div />;
 };
-
-// handleSignUp(e) {
-//   e.preventDefault()
-//   axios.post('http://localhost:3001/users/signup', {
-//     email: this.state.email,
-//     password: this.state.password
-//   })
-//     .then(response => {
-//       localStorage.token = response.data.token
-//       this.setState({ isLoggedIn: true })
-//     })
-//     .catch(err => console.log(err))
-// }
-
-// handleInput(e) {
-//   this.setState({
-//     [e.target.name]: e.target.value
-//   })
-// }
-
-// handleLogIn(e) {
-
-// }
 
 // handleLogOut() {
 //   this.setState({
