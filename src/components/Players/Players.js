@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { league } from '../../players.json';
 import './Players.css';
 import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
@@ -38,17 +39,21 @@ class Players extends Component {
         <HomePhotos />
         <div className='col-6'>
           <PlayerSearchForm searchPlayer={this.searchPlayer} />
-          {this.getPlayers().map((item, i) => {
+          {this.getPlayers().map((player, i) => {
             return (
-              <div className='list-group' key={i}>
-                <a href='#' className='list-group-item list-group-item-action'>
-                  <p>{item.lastName + ', ' + item.firstName}</p>
-                  <Link to={`/addPlayerToList/${item.personId}`}>
-                    <button className='btn btn-info'>Add to My List</button>
-                  </Link>
-                  <p>{item.pos[0]}</p>
-                </a>
-              </div>
+              <Link to={`/playerShow/${player.personId}`}>
+                <div className='list-group' key={i}>
+                  <a
+                    href='#'
+                    className='list-group-item list-group-item-action'>
+                    <p>{player.lastName + ', ' + player.firstName}</p>
+                    <Link to={`/addPlayerToList/${item.personId}`}>
+                      <button className='btn btn-info'>Add to My List</button>
+                    </Link>
+                    <p>{player.pos[0]}</p>
+                  </a>
+                </div>
+              </Link>
             );
           })}
         </div>

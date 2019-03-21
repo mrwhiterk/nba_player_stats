@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import serverUrl from '../constants';
 import axios from 'axios';
 
@@ -31,7 +32,6 @@ class MyPlayerList extends Component {
         console.log(err);
       });
   }
-
   searchPlayer(term) {
     this.setState({ searchTerm: term.toLowerCase() });
   }
@@ -60,13 +60,15 @@ class MyPlayerList extends Component {
           {this.players.map((player, i) => {
             return (
               <div className='list-group' key={i}>
-                <a href='#' className='list-group-item list-group-item-action'>
-                  <p>{player.lastName + ', ' + player.firstName}</p>
-                  <Link to={`/deletePlayer/${player._id}`}>
-                    <button className='btn btn-info'>remove</button>
-                  </Link>
-                  <p>{player.pos[0]}</p>
-                </a>
+                <Link to={`/playerShow/${player.personId}`}>
+                  <button className='list-group-item list-group-item-action'>
+                    <p>{player.lastName + ', ' + player.firstName}</p>
+                    <Link to={`/deletePlayer/${player._id}`}>
+                      <button className='btn btn-info'>remove</button>
+                    </Link>
+                    <p>{player.pos[0]}</p>
+                  </button>
+                </Link>
               </div>
             );
           })}

@@ -47,12 +47,15 @@ export default class Team extends Component {
       <div className='row'>
         <div className='card w-75 offset-1'>
           <div className='card-body'>
-            <h1 className='card-title'>{this.state.team.fullName}</h1>
+
+            <div className='row team-show-header'>
+              <h1 className='card-title'>{this.state.team.fullName}</h1>
+            </div>
             <Link to={`/editTeam/${this.state.team._id}`}>
-              <button class='btn btn-danger'>Edit</button>
+              <button className='btn btn-danger'>Edit</button>
             </Link>
 
-            <button onClick={this.deleteTeam} class='btn btn-danger'>
+            <button onClick={this.deleteTeam} className='btn btn-danger'>
               Delete
             </button>
 
@@ -60,12 +63,14 @@ export default class Team extends Component {
             <ul className='card-text'>
               {this.state.team.teamRoster &&
                 this.state.team.teamRoster.map((player, i) => (
-                  <li key={i} class='rosterItem'>
-                    <h5>
-                      {player.lastName}, {player.firstName}
-                    </h5>
-                    <h5>{player.pos[0]}</h5>
-                  </li>
+                  <Link to={`/playerShow/${player.personId}`}>
+                    <li key={i} className='rosterItem'>
+                      <h5>
+                        {player.lastName}, {player.firstName}
+                      </h5>
+                      <h5>{player.pos[0]}</h5>
+                    </li>
+                  </Link>
                 ))}
             </ul>
           </div>
