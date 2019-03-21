@@ -8,10 +8,6 @@
   margin-left: 2%;
 }
 
-.list-group-item:hover {
-  background-color: var(--main-primary-highlight-color);
-}
-
 .double-column {
   display: flex;
   flex-direction: column;
