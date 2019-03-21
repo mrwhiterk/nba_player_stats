@@ -20,10 +20,13 @@ img {
   background: var(--main-secondary-color);
   margin-bottom: 1%;
 }
+#navbarNav {
+  margin-left: 20%;
+}
 .navbar.navbar-brand {
   color: #fff;
   margin-right: 5%;
-  display: inline-block;
+  display: flex;
   font-size: 3em;
   color: #fff;
 }
@@ -38,9 +41,7 @@ img {
 .navbar .navbar-brand:hover {
   color: var(--main-primary-color);
   text-decoration: none;
-
 }
 .navbar-toggler {
   background-color: #fff;
 }
-
