@@ -61,11 +61,16 @@ class MyPlayerList extends Component {
               <div className='list-group' key={i}>
                 <Link to={`/playerShow/${player.personId}`}>
                   <button className='list-group-item list-group-item-action'>
-                    <p>{player.lastName + ', ' + player.firstName}</p>
-                    <Link to={`/deletePlayer/${player._id}`}>
-                      <button className='btn btn-info'>remove</button>
-                    </Link>
-                    <p>{player.pos[0]}</p>
+                    <div className='row'>
+                      <div className='double-column'>
+                        <p className='playername'>
+                          {player.lastName + ', ' + player.firstName}
+                        </p>
+                      </div>
+                      <Link to={`/deletePlayer/${player._id}`}>
+                        <button className='btn btn-info'>remove</button>
+                      </Link>
+                    </div>
                   </button>
                 </Link>
               </div>
