@@ -26,6 +26,7 @@ class PlayerShow extends Component {
 
   render() {
     const image = this.props.photos;
+    const attendedUni = this.state.player.collegeName;
     return (
       <div className='row'>
         <div className='thiscard w-75 offset</div>-1'>
@@ -49,7 +50,13 @@ class PlayerShow extends Component {
                 </h2>
                 <h2>Weight: {this.state.player.weightPounds}</h2>
                 <h2>Years Pro: {this.state.player.yearsPro}</h2>
-                <h2>College: {this.state.player.collegeName}</h2>
+                <div>
+                  {attendedUni ? (
+                    <h2> College: {this.state.player.collegeName}</h2>
+                  ) : (
+                    <h2 />
+                  )}
+                </div>
               </div>
               <div className='col-6'>
                 <img
