@@ -95,6 +95,10 @@ class App extends Component {
             path='/draftPlayerToTeam/:teamId/:id'
             render={props => <AddPlayerToTeam {...props} />}
           />
+          <Route
+            path='/removePlayerFromTeam/:teamId/:id'
+            render={props => <RemovePlayerFromTeam {...props} />}
+          />
         </Switch>
       </div>
     );
@@ -133,6 +137,27 @@ const RemovePlayerFromList = props => {
     .delete(serverUrl + '/players/' + props.match.params.id)
     .then(res => {
       props.history.push('/my-players');
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  return <div />;
+};
+
+const RemovePlayerFromTeam = props => {
+  axios
+    .put(
+      serverUrl +
+        '/teams/' +
+        props.match.params.teamId +
+        '/delete/' +
+        props.match.params.id
+    )
+    .then(res => {
+      if (res.data.removedPlayer) {
+        alert(res.data.removedPlayer);
+      }
+      props.history.push('/my-teams');
     })
     .catch(err => {
       console.log(err);
