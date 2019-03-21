@@ -13,20 +13,29 @@
   margin-top: 3%;
   position: relative;
 }
+
 .card-title-new {
-  margin-left: 27%;
+  position: relative;
+  margin-left: 20%;
   font-size: 4em;
   align-items: center;
   padding: 2%;
-}
-.playerPhoto {
-  max-height: 100%;
-  max-width: 80%;
-  margin-top: 4.3%;
-  position: absolute;
-  vertical-align: bottom;
+  color: var(--main-secondary-color);
 }
 .add-button {
   position: absolute;
   vertical-align: bottom;
+  margin: 3%;
+}
+.col-6 {
+  position: relative;
+}
+
+.playerPhoto {
+  bottom: 0;
+  right: 10;
+  position: absolute;
+}
+.card-body {
+  padding-bottom: 0;
 }
