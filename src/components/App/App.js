@@ -37,14 +37,14 @@ class App extends Component {
           <div className='collapse navbar-collapse' id='navbarNav'>
             <ul className='navbar-nav'>
               <li className='nav-item active'>
-                <a className='nav-link'>
+                <a className='nav-link col-6'>
                   <Link to='/players'>
                     <h3 className='home'>Browse</h3>
                   </Link>
                   <span className='sr-only'>(current)</span>
                 </a>
               </li>
-              <li className='nav-item'>
+              <li className='nav-items col-6'>
                 <a className='nav-link'>
                   <Link to='/my-players'>
                     <h3 className='home'>MyPlayers</h3>
@@ -63,6 +63,7 @@ class App extends Component {
             </ul>
           </div>
         </nav>
+
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/players' render={() => <Players />} />
