@@ -5,6 +5,7 @@
 }
 
 .list-group-item {
+  margin-left: 2%;
 }
 
 .list-group-item:hover {
@@ -22,4 +23,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+}
+.playerName {
+  margin-left: 3%;
 }
