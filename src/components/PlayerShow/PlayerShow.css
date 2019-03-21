@@ -9,17 +9,20 @@
   background-color: var(--main-primary-color);
   color: white;
   margin-left: 13%;
+  margin-bottom: 5%;
+  margin-top: 3%;
+  position: relative;
 }
 .card-title {
-  display: flex;
-  justify-content: space-between;
-  font-size: 3em;
-  margin-right: 10%;
+  margin-left: 27%;
+  font-size: 4em;
   align-items: center;
   padding: 2%;
 }
-.content {
-  display: inline-grid;
-  grid-column-gap: 50px;
-  margin-left: 2%;
+.playerPhoto {
+  max-height: 100%;
+  max-width: 80%;
+  margin-top: 4.3%;
+  position: absolute;
+  vertical-align: bottom;
 }
