@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import serverUrl from '../constants';
-import axios from 'axios';
-import ReactDOM from 'react-dom';
 import { league } from '../../players.json';
 import './PlayerShow.css';
 
@@ -25,7 +22,6 @@ class PlayerShow extends Component {
   }
 
   render() {
-    const image = this.props.photos;
     return (
       <div className='row'>
         <div className='thiscard w-75 offset</div>-1'>
@@ -57,6 +53,7 @@ class PlayerShow extends Component {
                   src={`https://nba-players.herokuapp.com/players/${
                     this.state.player.lastName
                   }/${this.state.player.firstName}`}
+                  alt='headshot'
                 />
               </div>
             </div>

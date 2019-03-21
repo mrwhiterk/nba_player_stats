@@ -30,35 +30,34 @@ class App extends Component {
             data-target='#navbarNav'
             aria-controls='navbarNav'
             aria-expanded='false'
-            aria-label='Toggle navigation'
-          >
+            aria-label='Toggle navigation'>
             <span className='navbar-toggler-icon' />
           </button>
           <div className='collapse navbar-collapse' id='navbarNav'>
             <ul className='navbar-nav'>
               <li className='nav-item active'>
-                <a className='nav-link'>
+                <div className='nav-link'>
                   <Link to='/players'>
                     <h3 className='home'>Browse</h3>
                   </Link>
                   <span className='sr-only'>(current)</span>
-                </a>
+                </div>
               </li>
               <li className='nav-item'>
-                <a className='nav-link'>
+                <div className='nav-link'>
                   <Link to='/my-players'>
                     <h3 className='home'>MyPlayers</h3>
                   </Link>
-                </a>
+                </div>
               </li>
 
               <li className='nav-item active'>
-                <a className='nav-link'>
+                <div className='nav-link'>
                   <Link to='/my-teams'>
                     <h3 className='home'>MyTeams</h3>
                   </Link>
                   <span className='sr-only' />
-                </a>
+                </div>
               </li>
             </ul>
           </div>
