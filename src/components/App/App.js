@@ -11,6 +11,7 @@ import EditTeamForm from "../EditTeamForm/EditTeamForm";
 import PlayerShow from "../PlayerShow/PlayerShow";
 import SignUpForm from "../SignUpForm/SignUpForm";
 import LogOut from "../LogOut/LogOut";
+import LogInForm from "../LogInForm/LogInForm";
 import axios from "axios";
 import serverUrl from "../constants";
 
@@ -25,13 +26,11 @@ class App extends Component {
       password: "",
       isLoggedIn: false
     };
-    this.handleLogIn = this.handleLogIn.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
+    this.handleLogIn = this.handleLogIn.bind(this);
   }
-
-  handleLogIn(e) {}
 
   handleInput(e) {
     this.setState({
@@ -60,6 +59,20 @@ class App extends Component {
       isLoggedIn: false
     });
     localStorage.clear();
+  }
+
+  handleLogIn(e) {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3001/users/login", {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(response => {
+        localStorage.token = response.data.token;
+        this.setState({ isLoggedIn: true });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -150,6 +163,17 @@ class App extends Component {
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 handleLogOut={this.handleLogOut}
+              />
+            )}
+          />
+          <Route
+            path="/users/login"
+            render={props => (
+              <LogInForm
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                handleInput={this.handleInput}
+                handleLogIn={this.handleLogIn}
               />
             )}
           />
