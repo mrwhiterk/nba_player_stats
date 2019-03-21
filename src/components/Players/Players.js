@@ -42,16 +42,14 @@ class Players extends Component {
             return (
               <Link to={`/playerShow/${player.personId}`}>
                 <div className='list-group' key={i}>
-                  <a
+                  <div
                     href='#'
-                    className='list-group-item list-group-item-action'
-                  >
-                    <p>{player.lastName + ', ' + player.firstName}</p>
+                    className='list-group-item list-group-item-action'>
+                    <h3>{player.lastName + ', ' + player.firstName}</h3>
                     <Link to={`/addPlayerToList/${player.personId}`}>
                       <button className='btn btn-info'>Add to My List</button>
                     </Link>
-                    <p>{player.pos[0]}</p>
-                  </a>
+                  </div>
                 </div>
               </Link>
             );

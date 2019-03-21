@@ -47,7 +47,6 @@ export default class Team extends Component {
       <div className='row'>
         <div className='card w-75 offset-1'>
           <div className='card-body'>
-
             <div className='row team-show-header'>
               <h1 className='card-title'>{this.state.team.fullName}</h1>
             </div>
@@ -69,6 +68,12 @@ export default class Team extends Component {
                         {player.lastName}, {player.firstName}
                       </h5>
                       <h5>{player.pos[0]}</h5>
+                      <Link
+                        to={`/removePlayerFromTeam/${this.state.team._id}/${
+                          player._id
+                        }`}>
+                        <button className='btn btn-info'>remove</button>
+                      </Link>
                     </li>
                   </Link>
                 ))}
