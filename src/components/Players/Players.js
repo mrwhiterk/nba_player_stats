@@ -4,6 +4,7 @@ import { league } from '../../players.json';
 import './Players.css';
 import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
 import HomePhotos from '../HomePhotos/HomePhotos.js';
+import icons from 'glyphicons';
 
 const players = league.standard;
 
@@ -40,18 +41,20 @@ class Players extends Component {
           <PlayerSearchForm searchPlayer={this.searchPlayer} />
           {this.getPlayers().map((player, i) => {
             return (
-              <Link to={`/playerShow/${player.personId}`}>
-                <div className='list-group' key={i}>
-                  <div
-                    href='#'
-                    className='list-group-item list-group-item-action'>
-                    <h3>{player.lastName + ', ' + player.firstName}</h3>
-                    <Link to={`/addPlayerToList/${player.personId}`}>
-                      <button className='btn btn-info'>Add to My List</button>
-                    </Link>
-                  </div>
+              <div className='list-group' key={i}>
+                <div
+                  href='#'
+                  className='list-group-item list-group-item-action'>
+                  <h3>{player.lastName + ', ' + player.firstName}</h3>
+
+                  <Link to={`/playerShow/${player.personId}`}>
+                    <p>{icons.magnifyingGlass}</p>
+                  </Link>
+                  <Link to={`/addPlayerToList/${player.personId}`}>
+                    <button className='btn btn-info'>Add to My List</button>
+                  </Link>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>
