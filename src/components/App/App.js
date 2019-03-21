@@ -112,7 +112,9 @@ const AddPlayerToTeam = props => {
     )
     .then(res => {
       setTimeout(function() {
-        if (res.data.error) {
+        if (res.data.full) {
+          alert(res.data.full);
+        } else if (res.data.error) {
           alert(res.data.error);
         } else {
           alert(res.data.success);

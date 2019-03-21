@@ -62,7 +62,9 @@ class TeamTable extends Component {
                     to={`/draftPlayerToTeam/${team._id}/${
                       this.state.player._id
                     }`}>
-                    <h2 key={i}>{team.fullName}</h2>
+                    <h2 key={i}>
+                      {team.fullName} &nbsp; {team.teamRoster.length}/12
+                    </h2>
                   </Link>
                 ))}
               </div>
