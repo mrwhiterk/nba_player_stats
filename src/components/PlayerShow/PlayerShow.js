@@ -36,6 +36,7 @@ class PlayerShow extends Component {
                 {this.state.player.firstName + ' ' + this.state.player.lastName}
               </h1>
             </div>
+
             <div className='row'>
               <div className='col-6'>
                 <h2>Jersey Number: {this.state.player.jersey} </h2>
@@ -62,6 +63,11 @@ class PlayerShow extends Component {
                     <h2 />
                   )}
                 </div>
+                <div className='add-button'>
+                  <Link to={`/addPlayerToList/${this.state.player.personId}`}>
+                    <button className='btn btn-info'>Add to My List</button>
+                  </Link>
+                </div>
               </div>
               <div className='col-6'>
                 <div className='playerPhoto'>
@@ -72,11 +78,6 @@ class PlayerShow extends Component {
                   />
                 </div>
               </div>
-            </div>
-            <div className='add-button'>
-              <Link to={`/addPlayerToList/${this.state.player.personId}`}>
-                <button className='btn btn-info'>Add to My List</button>
-              </Link>
             </div>
           </div>
         </div>

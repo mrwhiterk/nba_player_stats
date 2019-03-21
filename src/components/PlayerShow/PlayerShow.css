@@ -18,16 +18,18 @@
   position: relative;
   padding: 5%;
   font-size: 4em;
-  text-align: center;
+  text-align: left;
   color: var(--main-secondary-color);
 }
 .add-button {
-  position: absolute;
   vertical-align: bottom;
-  margin: 3%;
+  align-content: center;
+  margin-left: 12%;
+  padding-bottom: 5%;
 }
 .col-6 {
   position: relative;
+  padding: 5%;
 }
 
 .playerPhoto {

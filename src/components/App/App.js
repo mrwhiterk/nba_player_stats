@@ -20,47 +20,52 @@ class App extends Component {
   render() {
     return (
       <div className='container-fluid'>
-        <nav className='navbar navbar-expand-lg navbar-light'>
-          <Link to='/'>
-            <span className='navbar-brand navbar'>NBA Roster Manager</span>
-          </Link>
-          <button
-            className='navbar-toggler'
-            type='button'
-            data-toggle='collapse'
-            data-target='#navbarNav'
-            aria-controls='navbarNav'
-            aria-expanded='false'
-            aria-label='Toggle navigation'>
-            <span className='navbar-toggler-icon' />
-          </button>
-          <div className='collapse navbar-collapse' id='navbarNav'>
-            <ul className='navbar-nav'>
-              <li className='nav-item active'>
-                <a className='nav-link col-6'>
-                  <Link to='/players'>
-                    <h3 className='home'>Browse</h3>
-                  </Link>
-                  <span className='sr-only'>(current)</span>
-                </a>
-              </li>
-              <li className='nav-items col-6'>
-                <a className='nav-link'>
-                  <Link to='/my-players'>
-                    <h3 className='home'>MyPlayers</h3>
-                  </Link>
-                </a>
-              </li>
+        <nav className='navbar d-flex flex-row justify-content-between navbar-expand-lg navbar-light'>
+          <div>
+            <Link to='/'>
+              <span className='navbar-brand navbar'>NBA Roster Manager</span>
+            </Link>
+          </div>
+          <div>
+            <button
+              className='navbar-toggler'
+              type='button'
+              data-toggle='collapse'
+              data-target='#navbarNav'
+              aria-controls='navbarNav'
+              aria-expanded='false'
+              aria-label='Toggle navigation'
+            >
+              <span className='navbar-toggler-icon' />
+            </button>
+            <div className='collapse navbar-collapse' id='navbarNav'>
+              <ul className='top-nav'>
+                <li className='nav-item active'>
+                  <a className='nav-link'>
+                    <Link to='/players'>
+                      <h5 className='navLinks'>Browse</h5>
+                    </Link>
+                    <span className='sr-only'>(current)</span>
+                  </a>
+                </li>
+                <li className='nav-items'>
+                  <a className='nav-link'>
+                    <Link to='/my-players'>
+                      <h5 className='navLinks'>MyPlayers</h5>
+                    </Link>
+                  </a>
+                </li>
 
-              <li className='nav-item active'>
-                <a className='nav-link'>
-                  <Link to='/my-teams'>
-                    <h3 className='home'>MyTeams</h3>
-                  </Link>
-                  <span className='sr-only' />
-                </a>
-              </li>
-            </ul>
+                <li className='nav-item active'>
+                  <a className='nav-link'>
+                    <Link to='/my-teams'>
+                      <h5 className='navLinks'>MyTeams</h5>
+                    </Link>
+                    <span className='sr-only' />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
 

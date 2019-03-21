@@ -83,6 +83,3 @@ class MyPlayerList extends Component {
 }
 
 export default MyPlayerList;
-/*  <div className='row'>
-                      <div className='double-column'>
-                        <h3 className='playerName'>*/
