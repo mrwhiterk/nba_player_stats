@@ -12,6 +12,9 @@ import PlayerShow from '../PlayerShow/PlayerShow';
 import axios from 'axios';
 import serverUrl from '../constants';
 
+import { league } from '../../players.json';
+const playerData = league.standard;
+
 class App extends Component {
   render() {
     return (
@@ -79,6 +82,10 @@ class App extends Component {
             path='/deletePlayer/:id'
             render={props => <RemovePlayerFromList {...props} />}
           />
+          <Route
+            path='/addPlayerToList/:personId'
+            render={props => <AddPlayerToList {...props} />}
+          />
         </Switch>
       </div>
     );
@@ -94,6 +101,37 @@ const RemovePlayerFromList = props => {
     .catch(err => {
       console.log(err);
     });
+  return <div />;
+};
+
+const AddPlayerToList = props => {
+  let playerMatch = playerData.find(
+    player => player.personId === props.match.params.personId
+  );
+
+  axios
+    .post(serverUrl + '/players/', playerMatch)
+    .then(res => {
+      setTimeout(() => {
+        res.data.data
+          ? alert(
+              `${playerMatch.firstName} ${
+                playerMatch.lastName
+              } is already on your list`
+            )
+          : alert(
+              `successfully added ${res.data.firstName} ${
+                res.data.lastName
+              } to your list`
+            );
+      }, 500);
+
+      props.history.push('/players');
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
   return <div />;
 };
 
