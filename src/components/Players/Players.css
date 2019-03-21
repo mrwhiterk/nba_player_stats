@@ -16,6 +16,3 @@
 .list-group-item:hover {
   background-color: var(--main-primary-highlight-color);
 }
-.pos {
-  display: flex;
-}
