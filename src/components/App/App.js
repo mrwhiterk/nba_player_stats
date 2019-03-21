@@ -11,6 +11,7 @@ import EditTeamForm from '../EditTeamForm/EditTeamForm';
 import PlayerShow from '../PlayerShow/PlayerShow';
 import axios from 'axios';
 import serverUrl from '../constants';
+import TeamTable from '../TeamTable/TeamTable';
 
 import { league } from '../../players.json';
 const playerData = league.standard;
@@ -30,8 +31,7 @@ class App extends Component {
             data-target='#navbarNav'
             aria-controls='navbarNav'
             aria-expanded='false'
-            aria-label='Toggle navigation'
-          >
+            aria-label='Toggle navigation'>
             <span className='navbar-toggler-icon' />
           </button>
           <div className='collapse navbar-collapse' id='navbarNav'>
@@ -87,11 +87,44 @@ class App extends Component {
             path='/addPlayerToList/:personId'
             render={props => <AddPlayerToList {...props} />}
           />
+          <Route
+            path='/addPlayerToTeam/:personId'
+            render={props => <TeamTable {...props} />}
+          />
+          <Route
+            path='/draftPlayerToTeam/:teamId/:id'
+            render={props => <AddPlayerToTeam {...props} />}
+          />
         </Switch>
       </div>
     );
   }
 }
+
+const AddPlayerToTeam = props => {
+  axios
+    .put(
+      serverUrl +
+        '/teams/' +
+        props.match.params.teamId +
+        '/add/' +
+        props.match.params.id
+    )
+    .then(res => {
+      setTimeout(function() {
+        if (res.data.error) {
+          alert(res.data.error);
+        } else {
+          alert(res.data.success);
+        }
+      }, 500);
+      props.history.push('/my-teams');
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  return <div />;
+};
 
 const RemovePlayerFromList = props => {
   axios
