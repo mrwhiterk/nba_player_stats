@@ -4,6 +4,7 @@ import './Players.css';
 import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
 import HomePhotos from '../HomePhotos/HomePhotos.js';
 
+import { Link } from 'react-router-dom';
 const players = league.standard;
 
 class Players extends Component {
@@ -42,6 +43,9 @@ class Players extends Component {
               <div className='list-group' key={i}>
                 <a href='#' className='list-group-item list-group-item-action'>
                   <p>{item.lastName + ', ' + item.firstName}</p>
+                  <Link to={`/addPlayerToList/${item.personId}`}>
+                    <button className='btn btn-info'>Add to My List</button>
+                  </Link>
                   <p>{item.pos[0]}</p>
                 </a>
               </div>
