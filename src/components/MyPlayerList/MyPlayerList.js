@@ -63,9 +63,9 @@ class MyPlayerList extends Component {
                   <button className='list-group-item list-group-item-action'>
                     <div className='row'>
                       <div className='double-column'>
-                        <p className='playername'>
-                          {player.lastName + ', ' + player.firstName}
-                        </p>
+                        <h4 className='playername'>
+                          {player.firstName + ' ' + player.lastName}
+                        </h4>
                       </div>
                       <Link to={`/deletePlayer/${player._id}`}>
                         <button className='btn btn-info'>remove</button>

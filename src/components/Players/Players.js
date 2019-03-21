@@ -46,11 +46,10 @@ class Players extends Component {
                     href='#'
                     className='list-group-item list-group-item-action'
                   >
-                    <p>{player.lastName + ', ' + player.firstName}</p>
+                    <h3>{player.lastName + ', ' + player.firstName}</h3>
                     <Link to={`/addPlayerToList/${player.personId}`}>
                       <button className='btn btn-info'>Add to My List</button>
                     </Link>
-                    <p>{player.pos[0]}</p>
                   </a>
                 </div>
               </Link>

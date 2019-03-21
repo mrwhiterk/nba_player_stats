@@ -16,10 +16,9 @@
 
 .card-title-new {
   position: relative;
-  margin-left: 20%;
+  padding: 5%;
   font-size: 4em;
-  align-items: center;
-  padding: 2%;
+  text-align: center;
   color: var(--main-secondary-color);
 }
 .add-button {
