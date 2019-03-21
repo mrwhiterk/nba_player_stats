@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Route, Link, Switch } from "react-router-dom";
+import { withRouter } from "react-router";
 import Players from "../Players/Players";
 import MyPlayerList from "../MyPlayerList/MyPlayerList";
 import MyTeamList from "../MyTeamList/MyTeamList";
@@ -32,6 +33,18 @@ class App extends Component {
     this.handleLogIn = this.handleLogIn.bind(this);
   }
 
+  componentDidMount() {
+    if (localStorage.token) {
+      this.setState({
+        isLoggedIn: true
+      });
+    } else {
+      this.setState({
+        isLoggedIn: false
+      });
+    }
+  }
+
   handleInput(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -48,6 +61,7 @@ class App extends Component {
       .then(response => {
         localStorage.token = response.data.token;
         this.setState({ isLoggedIn: true });
+        this.props.history.push("/");
       })
       .catch(err => console.log(err));
   }
@@ -59,6 +73,7 @@ class App extends Component {
       isLoggedIn: false
     });
     localStorage.clear();
+    this.props.history.push("/users/login");
   }
 
   handleLogIn(e) {
@@ -71,6 +86,7 @@ class App extends Component {
       .then(response => {
         localStorage.token = response.data.token;
         this.setState({ isLoggedIn: true });
+        this.props.history.push("/");
       })
       .catch(err => console.log(err));
   }
@@ -78,85 +94,101 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg navbar-light">
-          <Link to="/">
-            <span className="navbar-brand navbar">NBA Roster Manager</span>
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item active">
-                <a className="nav-link">
-                  <Link to="/players">
-                    <h3 className="home">Browse</h3>
-                  </Link>
-                  <span className="sr-only">(current)</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link">
-                  <Link to="/my-players">
-                    <h3 className="home">MyPlayers</h3>
-                  </Link>
-                </a>
-              </li>
+        <nav className="navbar d-flex flex-row justify-content-between navbar-expand-lg navbar-light">
+          <div>
+            <Link to="/">
+              <span className="navbar-brand navbar">NBA Roster Manager</span>
+            </Link>
+          </div>
 
-              <li className="nav-item active">
-                <a className="nav-link">
-                  <Link to="/my-teams">
-                    <h3 className="home">MyTeams</h3>
-                  </Link>
-                  <span className="sr-only" />
-                </a>
-              </li>
-              <li className="nav-item active">
-                <a className="nav-link">
-                  {this.state.isLoggedIn === false && (
-                    <Link to="/users/signup">
-                      <h3 className="home">Sign Up</h3>
-                    </Link>
-                  )}
-                  <span className="sr-only" />
-                </a>
-              </li>
-              <li className="nav-item active">
-                <a className="nav-link">
-                  {this.state.isLoggedIn === false && (
-                    <Link to="/users/login">
-                      <h3 className="home">Log In</h3>
-                    </Link>
-                  )}
-                  <span className="sr-only" />
-                </a>
-              </li>
-              <li className="nav-item active">
-                <a className="nav-link">
-                  {this.state.isLoggedIn === true && (
-                    <Link to="/users/logout">
-                      <h3 className="home">Log Out</h3>
-                    </Link>
-                  )}
-                  <span className="sr-only" />
-                </a>
-              </li>
-            </ul>
+          <div>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav">
+                <li className="nav-item active">
+                  <a className="nav-link">
+                    {this.state.isLoggedIn === true && (
+                      <Link to="/players">
+                        <h3 className="home">Browse</h3>
+                      </Link>
+                    )}
+                    <span className="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link">
+                    {this.state.isLoggedIn === true && (
+                      <Link to="/my-players">
+                        <h3 className="home">MyPlayers</h3>
+                      </Link>
+                    )}
+                  </a>
+                </li>
+
+                <li className="nav-item active">
+                  <a className="nav-link">
+                    {this.state.isLoggedIn === true && (
+                      <Link to="/my-teams">
+                        <h3 className="home">MyTeams</h3>
+                      </Link>
+                    )}
+                    <span className="sr-only" />
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link">
+                    {this.state.isLoggedIn === false && (
+                      <Link to="/users/signup">
+                        <h3 className="home">Sign Up</h3>
+                      </Link>
+                    )}
+                    <span className="sr-only" />
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link">
+                    {this.state.isLoggedIn === false && (
+                      <Link to="/users/login">
+                        <h3 className="home">Log In</h3>
+                      </Link>
+                    )}
+                    <span className="sr-only" />
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link">
+                    {this.state.isLoggedIn === true && (
+                      <Link to="/users/login" onClick={this.handleLogOut}>
+                        <h3 className="home">Log Out</h3>
+                      </Link>
+                    )}
+                    <span className="sr-only" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/players" render={() => <Players />} />
           <Route path="/my-players" render={() => <MyPlayerList />} />
-          <Route path="/my-teams" render={() => <MyTeamList />} />
+          <Route
+            path="/my-teams"
+            render={props => (
+              <MyTeamList {...props} isLoggedIn={this.state.isLoggedIn} />
+            )}
+          />
           <Route path="/team/:teamId" render={props => <Team {...props} />} />
           <Route path="/newTeam" render={props => <NewTeamForm {...props} />} />
           <Route
@@ -186,16 +218,7 @@ class App extends Component {
               />
             )}
           />
-          <Route
-            path="/users/logout"
-            render={props => (
-              <LogOut
-                {...props}
-                isLoggedIn={this.state.isLoggedIn}
-                handleLogOut={this.handleLogOut}
-              />
-            )}
-          />
+
           <Route
             path="/users/login"
             render={props => (
@@ -256,4 +279,4 @@ const AddPlayerToList = props => {
   return <div />;
 };
 
-export default App;
+export default withRouter(App);
