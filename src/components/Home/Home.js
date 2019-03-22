@@ -16,14 +16,18 @@ export default class Home extends Component {
             <p className="card-text">
               View stats, and other info from all your favorite athletes
             </p>
-            <div className="quick-actions">
-              <Link to="/players">
-                <button className="btn btn-danger">Start Adding Players</button>
-              </Link>
-              <Link to="/my-players">
-                <button className="btn btn-danger">View Your Players</button>
-              </Link>
-            </div>
+            {this.props.isLoggedIn === true && (
+              <div className="quick-actions">
+                <Link to="/players">
+                  <button className="btn btn-danger">
+                    Start Adding Players
+                  </button>
+                </Link>
+                <Link to="/my-players">
+                  <button className="btn btn-danger">View Your Players</button>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

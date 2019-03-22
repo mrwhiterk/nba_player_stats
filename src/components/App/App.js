@@ -183,7 +183,13 @@ class App extends Component {
         </nav>
 
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route
+            path="/"
+            exact
+            render={props => (
+              <Home {...props} isLoggedIn={this.state.isLoggedIn} />
+            )}
+          />
           <Route path="/players" render={() => <Players />} />
           <Route path="/my-players" render={() => <MyPlayerList />} />
           <Route

@@ -1,26 +1,36 @@
 import React, { Component } from "react";
+import "./LogInForm.css";
 
 class LogInForm extends Component {
   render() {
     console.log(this.props.isLoggedIn);
     return (
-      <div>
+      <div className="auth">
         <h2>Log In</h2>
 
         <form>
-          <div>
+          <div className="form-group">
             <label htmlFor="email">Email</label>
-            <input type="text" name="email" onChange={this.props.handleInput} />
+            <input
+              className="form-control"
+              id="exampleFormControlInput1"
+              type="email"
+              name="email"
+              onChange={this.props.handleInput}
+            />
           </div>
-          <div>
+          <div lassName="form-group">
             <label htmlFor="password">Password</label>
             <input
-              type="text"
+              className="form-control"
+              id="exampleFormControlInput1"
+              type="password"
               name="password"
               onChange={this.props.handleInput}
             />
           </div>
           <input
+            class="btn btn-outline-dark m-3"
             value="Submit"
             type="submit"
             onClick={this.props.handleLogIn}
