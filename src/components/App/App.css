@@ -45,3 +45,11 @@ img {
 .btn-info {
   background-color: var(--main-secondary-color);
 }
+
+.nav-button {
+  display: flex;
+  margin-right: 2%;
+}
+.nav-link:hover {
+  color: var(--main-primary-color);
+}

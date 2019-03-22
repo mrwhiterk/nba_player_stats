@@ -64,13 +64,25 @@ export default class Team extends Component {
             {this.state.team.teamRoster &&
               this.state.team.teamRoster.map((player, i) => (
                 <li key={i} className='rosterItem'>
-                  <Link to={`/playerShow/${player.personId}/${false}`}>
-                    <h5 className='flex-item'>
+                  <h5 className='flex-item'>
+                    <img
+                      className='playerHeadshot'
+                      src={`https://nba-players.herokuapp.com/players/${
+                        player.lastName
+                      }/${player.firstName}`}
+                      alt='headshot'
+                    />
+                  </h5>
+                  <span />
+                  <div className='playerName'>
+                    <Link to={`/playerShow/${player.personId}/${false}`}>
+                    <h5 className='rosterCard'>
                       {player.lastName}, {player.firstName}
                     </h5>
-                  </Link>
+                    </Link>
+                  </div>
                   &nbsp;&nbsp;&nbsp;
-                  <h4 className='flex-item alt-color'>{player.pos[0]}</h4>
+                  <h4 className='pos alt-color'>{player.pos[0]}</h4>
                   <span />
                   <Link to={`/playerShow/${player.personId}/${false}`}>
                     <h4 className='flex-item'>🏀</h4>
