@@ -64,9 +64,11 @@ export default class Team extends Component {
             {this.state.team.teamRoster &&
               this.state.team.teamRoster.map((player, i) => (
                 <li key={i} className='rosterItem'>
-                  <h5 className='flex-item'>
-                    {player.lastName}, {player.firstName}
-                  </h5>
+                  <Link to={`/playerShow/${player.personId}/${false}`}>
+                    <h5 className='flex-item'>
+                      {player.lastName}, {player.firstName}
+                    </h5>
+                  </Link>
                   &nbsp;&nbsp;&nbsp;
                   <h4 className='flex-item alt-color'>{player.pos[0]}</h4>
                   <span />

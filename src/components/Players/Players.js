@@ -47,9 +47,11 @@ class Players extends Component {
                 <div
                   href='#'
                   className='list-group-item list-group-item-action'>
-                  <h4 className='flex-item'>
-                    {player.lastName + ', ' + player.firstName}
-                  </h4>
+                  <Link to={`/playerShow/${player.personId}/${true}`}>
+                    <h4 className='flex-item'>
+                      {player.lastName + ', ' + player.firstName}
+                    </h4>
+                  </Link>
                   <span />
                   <Link to={`/playerShow/${player.personId}/${true}`}>
                     <h4 className='flex-item'>🏀</h4>
