@@ -71,7 +71,7 @@ class MyTeamList extends Component {
                   </h4>
                   <span />
                   <Link to={`/team/${team._id}`}>
-                    <h4 className='flex-item'>{icons.magnifyingGlass}</h4>
+                    <h4 className='flex-item'>🏀</h4>
                   </Link>
                   &nbsp;
                   <h4 className='list-group-item-name flex-item'>
