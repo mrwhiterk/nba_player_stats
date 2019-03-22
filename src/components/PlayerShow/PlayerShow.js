@@ -46,20 +46,14 @@ class PlayerShow extends Component {
                     '"'}
                 </h2>
                 <h2>Weight: {this.state.player.weightPounds}</h2>
-                <div>
-                  {rookie ? (
-                    <h2>Years Pro: Rookie </h2>
-                  ) : (
-                    <h2>Years Pro: {this.state.player.yearsPro}</h2>
-                  )}
-                </div>
-                <div>
-                  {attendedUni ? (
-                    <h2> College: {this.state.player.collegeName}</h2>
-                  ) : (
-                    <h2 />
-                  )}
-                </div>
+                {rookie ? (
+                  <h2>Years Pro: Rookie </h2>
+                ) : (
+                  <h2>Years Pro: {this.state.player.yearsPro}</h2>
+                )}
+                {attendedUni && (
+                  <h2> College: {this.state.player.collegeName}</h2>
+                )}
                 <div className='add-button'>
                   <Link to={`/addPlayerToList/${this.state.player.personId}`}>
                     <button className='btn btn-info'>Add to My List</button>

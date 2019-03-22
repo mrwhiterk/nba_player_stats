@@ -60,8 +60,7 @@ class TeamTable extends Component {
                   <Link
                     to={`/draftPlayerToTeam/${team._id}/${
                       this.state.player._id
-                    }`}
-                  >
+                    }`}>
                     <h2 className='teamName' key={i}>
                       {team.fullName} &nbsp; {team.teamRoster.length}/12
                     </h2>
@@ -70,6 +69,7 @@ class TeamTable extends Component {
               </div>
               <div className='col-6'>
                 <img
+                  alt='player'
                   className='playerPhoto'
                   src={`https://nba-players.herokuapp.com/players/${
                     this.state.player.lastName
