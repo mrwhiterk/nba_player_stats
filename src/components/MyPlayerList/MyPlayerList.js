@@ -63,7 +63,7 @@ class MyPlayerList extends Component {
           {this.players.map((player, i) => {
             return (
               <div className='list-group' key={i}>
-                <button className='list-group-item list-group-item-action'>
+                <div className='list-group-item list-group-item-action'>
                   <div className='row'>
                     <div className='double-column'>
                       <h3 className='playerName'>
@@ -80,7 +80,7 @@ class MyPlayerList extends Component {
                       <button className='btn btn-info'>remove</button>
                     </Link>
                   </div>
-                </button>
+                </div>
               </div>
             );
           })}
