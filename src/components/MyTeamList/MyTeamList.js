@@ -65,15 +65,19 @@ class MyTeamList extends Component {
           {this.teams.map((team, i) => {
             return (
               <div className='list-group' key={i}>
-                <button className='list-group-item list-group-item-action'>
-                  <p className='list-group-item-name'>{team.fullName}</p>
+                <div className='list-group-item list-group-item-action'>
+                  <h4 className='list-group-item-name flex-item'>
+                    {team.fullName}
+                  </h4>
+                  <span />
                   <Link to={`/team/${team._id}`}>
-                    <p>{icons.magnifyingGlass}</p>
+                    <h4 className='flex-item'>{icons.magnifyingGlass}</h4>
                   </Link>
-                  <p className='list-group-item-name'>
+                  &nbsp;
+                  <h4 className='list-group-item-name flex-item'>
                     {team.teamRoster.length}/12 players
-                  </p>
-                </button>
+                  </h4>
+                </div>
               </div>
             );
           })}

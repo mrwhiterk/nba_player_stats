@@ -7,10 +7,17 @@
 .list-group-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: var(--main-primary-color);
   margin-top: 1%;
   color: white;
+}
+
+.list-group-item>span {
+  flex-grow: 1;
+}
+
+.list-group-item>.flex-item {
+  flex-grow: 0;
 }
 
 .list-group-item:hover {

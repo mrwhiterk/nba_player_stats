@@ -66,12 +66,12 @@ class MyPlayerList extends Component {
                 <div className='list-group-item list-group-item-action'>
                   <div className='row'>
                     <div className='double-column'>
-                      <h3 className='playerName'>
+                      <h4 className='playerName'>
                         {player.lastName + ', ' + player.firstName}
-                      </h3>
+                      </h4>
                     </div>
                     <Link to={`/playerShow/${player.personId}`}>
-                      <p>{icons.magnifyingGlass}</p>
+                      <h4>🏀</h4>
                     </Link>
                     <Link to={`/addPlayerToTeam/${player._id}`}>
                       <button className='btn btn-info'>draft player</button>

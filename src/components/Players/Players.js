@@ -4,7 +4,6 @@ import { league } from '../../players.json';
 import './Players.css';
 import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
 import HomePhotos from '../HomePhotos/HomePhotos.js';
-import icons from 'glyphicons';
 
 const players = league.standard;
 
@@ -48,12 +47,17 @@ class Players extends Component {
                 <div
                   href='#'
                   className='list-group-item list-group-item-action'>
-                  <h3>{player.lastName + ', ' + player.firstName}</h3>
+                  <h4 className='flex-item'>
+                    {player.lastName + ', ' + player.firstName}
+                  </h4>
+                  <span />
                   <Link to={`/playerShow/${player.personId}`}>
-                    <p>{icons.magnifyingGlass}</p>
+                    <h4 className='flex-item'>🏀</h4>
                   </Link>
                   <Link to={`/addPlayerToList/${player.personId}`}>
-                    <button className='btn btn-info'>Add to My List</button>
+                    <button className='btn btn-info flex-item'>
+                      Add to My List
+                    </button>
                   </Link>
                 </div>
               </div>
