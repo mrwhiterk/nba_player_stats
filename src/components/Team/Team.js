@@ -75,9 +75,11 @@ export default class Team extends Component {
                   </h5>
                   <span />
                   <div className='playerName'>
+                    <Link to={`/playerShow/${player.personId}/${false}`}>
                     <h5 className='rosterCard'>
                       {player.lastName}, {player.firstName}
                     </h5>
+                    </Link>
                   </div>
                   &nbsp;&nbsp;&nbsp;
                   <h4 className='pos alt-color'>{player.pos[0]}</h4>

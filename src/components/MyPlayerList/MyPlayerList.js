@@ -65,9 +65,11 @@ class MyPlayerList extends Component {
                 <div className='list-group-item list-group-item-action'>
                   <div className='row'>
                     <div className='double-column'>
-                      <h4 className='playerName'>
-                        {player.lastName + ', ' + player.firstName}
-                      </h4>
+                      <Link to={`/playerShow/${player.personId}/${false}`}>
+                        <h4 className='playerName'>
+                          {player.lastName + ', ' + player.firstName}
+                        </h4>
+                      </Link>
                     </div>
                     <Link to={`/playerShow/${player.personId}/${false}`}>
                       <h4>🏀</h4>
