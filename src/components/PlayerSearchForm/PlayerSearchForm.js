@@ -36,7 +36,7 @@ export default class PlayerSearchForm extends Component {
             type='text'
             aria-label='Search'
             name='name'
-            placeholder="type in player name and press 'enter'"
+            placeholder="type name and press 'enter'"
             onChange={this.handleChange}
             value={this.state.author}
           />

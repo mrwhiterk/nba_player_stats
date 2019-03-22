@@ -6,6 +6,7 @@ import axios from 'axios';
 import './MyPlayerList.css';
 import HomePhotos from '../HomePhotos/HomePhotos';
 import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
+import icons from 'glyphicons';
 
 class MyPlayerList extends Component {
   constructor(props) {
@@ -62,23 +63,24 @@ class MyPlayerList extends Component {
           {this.players.map((player, i) => {
             return (
               <div className='list-group' key={i}>
-                <Link to={`/playerShow/${player.personId}`}>
-                  <button className='list-group-item list-group-item-action'>
-                    <div className='row'>
-                      <div className='double-column'>
-                        <h3 className='playerName'>
-                          {player.lastName + ', ' + player.firstName}
-                        </h3>
-                      </div>
-                      <Link to={`/addPlayerToTeam/${player._id}`}>
-                        <button className='btn btn-info'>draft player</button>
-                      </Link>
-                      <Link to={`/deletePlayer/${player._id}`}>
-                        <button className='btn btn-info'>remove</button>
-                      </Link>
+                <button className='list-group-item list-group-item-action'>
+                  <div className='row'>
+                    <div className='double-column'>
+                      <h3 className='playerName'>
+                        {player.lastName + ', ' + player.firstName}
+                      </h3>
                     </div>
-                  </button>
-                </Link>
+                    <Link to={`/playerShow/${player.personId}`}>
+                      <p>{icons.magnifyingGlass}</p>
+                    </Link>
+                    <Link to={`/addPlayerToTeam/${player._id}`}>
+                      <button className='btn btn-info'>draft player</button>
+                    </Link>
+                    <Link to={`/deletePlayer/${player._id}`}>
+                      <button className='btn btn-info'>remove</button>
+                    </Link>
+                  </div>
+                </button>
               </div>
             );
           })}
