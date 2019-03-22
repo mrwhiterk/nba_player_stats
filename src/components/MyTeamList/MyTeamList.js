@@ -50,37 +50,39 @@ class MyTeamList extends Component {
     }
 
     return (
-      <div className="row">
-        <HomePhotos />
-        <div className="col-6">
-          <div className="player-title-show">
-            <h1 className="search-title">My Team List</h1>
-          </div>
-          <PlayerSearchForm searchTeam={this.searchTeam} />
-          <Link to="/newTeam">
-            <button className="btn btn-info">Create New Team</button>
-          </Link>
-          {this.teams.map((team, i) => {
-            return (
-              <div className="list-group" key={i}>
-                <div className="list-group-item list-group-item-action">
-                  <h4 className="list-group-item-name flex-item">
-                    {team.fullName}
-                  </h4>
-                  <span />
-                  <Link to={`/team/${team._id}`}>
-                    <h4 className="flex-item">🏀</h4>
-                  </Link>
-                  &nbsp;
-                  <h4 className="list-group-item-name flex-item">
-                    {team.teamRoster.length}/12 players
-                  </h4>
+      this.props.isLoggedIn === true && (
+        <div className="row">
+          <HomePhotos />
+          <div className="col-6">
+            <div className="player-title-show">
+              <h1 className="search-title">My Team List</h1>
+            </div>
+            <PlayerSearchForm searchTeam={this.searchTeam} />
+            <Link to="/newTeam">
+              <button className="btn btn-info">Create New Team</button>
+            </Link>
+            {this.teams.map((team, i) => {
+              return (
+                <div className="list-group" key={i}>
+                  <div className="list-group-item list-group-item-action">
+                    <h4 className="list-group-item-name flex-item">
+                      {team.fullName}
+                    </h4>
+                    <span />
+                    <Link to={`/team/${team._id}`}>
+                      <h4 className="flex-item">🏀</h4>
+                    </Link>
+                    &nbsp;
+                    <h4 className="list-group-item-name flex-item">
+                      {team.teamRoster.length}/12 players
+                    </h4>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )
     );
   }
 }
