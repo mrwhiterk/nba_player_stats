@@ -1,31 +1,31 @@
-import React, { Component } from "react";
-import "./App.css";
-import { Route, Link, Switch } from "react-router-dom";
-import { withRouter } from "react-router";
-import Players from "../Players/Players";
-import MyPlayerList from "../MyPlayerList/MyPlayerList";
-import MyTeamList from "../MyTeamList/MyTeamList";
-import Home from "../Home/Home";
-import Team from "../Team/Team";
-import NewTeamForm from "../NewTeamForm/NewTeamForm";
-import EditTeamForm from "../EditTeamForm/EditTeamForm";
-import PlayerShow from "../PlayerShow/PlayerShow";
-import LogInForm from "../LogInForm/LogInForm";
-import SignUpForm from "../SignUpForm/SignUpForm";
-import axios from "axios";
-import serverUrl from "../constants";
-import TeamTable from "../TeamTable/TeamTable";
+import React, { Component } from 'react';
+import './App.css';
+import { Route, Link, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import Players from '../Players/Players';
+import MyPlayerList from '../MyPlayerList/MyPlayerList';
+import MyTeamList from '../MyTeamList/MyTeamList';
+import Home from '../Home/Home';
+import Team from '../Team/Team';
+import NewTeamForm from '../NewTeamForm/NewTeamForm';
+import EditTeamForm from '../EditTeamForm/EditTeamForm';
+import PlayerShow from '../PlayerShow/PlayerShow';
+import LogInForm from '../LogInForm/LogInForm';
+import SignUpForm from '../SignUpForm/SignUpForm';
+import axios from 'axios';
+import serverUrl from '../constants';
+import TeamTable from '../TeamTable/TeamTable';
 
-import { league } from "../../players.json";
+import { league } from '../../players.json';
 const playerData = league.standard;
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: "",
-      isLoggedIn: false
+      email: '',
+      password: '',
+      isLoggedIn: false,
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
@@ -36,136 +36,135 @@ class App extends Component {
   componentDidMount() {
     if (localStorage.token) {
       this.setState({
-        isLoggedIn: true
+        isLoggedIn: true,
       });
     } else {
       this.setState({
-        isLoggedIn: false
+        isLoggedIn: false,
       });
     }
   }
 
   handleInput(e) {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   }
 
   handleSignUp(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/users/signup", {
+      .post('http://localhost:3001/users/signup', {
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
       })
       .then(response => {
         localStorage.token = response.data.token;
         this.setState({ isLoggedIn: true });
-        this.props.history.push("/");
+        this.props.history.push('/');
       })
       .catch(err => console.log(err));
   }
 
   handleLogOut() {
     this.setState({
-      email: "",
-      password: "",
-      isLoggedIn: false
+      email: '',
+      password: '',
+      isLoggedIn: false,
     });
     localStorage.clear();
-    this.props.history.push("/users/login");
+    this.props.history.push('/users/login');
   }
 
   handleLogIn(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/users/login", {
+      .post('http://localhost:3001/users/login', {
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
       })
       .then(response => {
         localStorage.token = response.data.token;
         this.setState({ isLoggedIn: true });
-        this.props.history.push("/");
+        this.props.history.push('/');
       })
       .catch(err => console.log(err));
   }
 
   render() {
     return (
-      <div className="container-fluid">
-        <nav className="navbar d-flex flex-row justify-content-between navbar-expand-lg navbar-light">
+      <div className='container-fluid'>
+        <nav className='navbar d-flex flex-row justify-content-between navbar-expand-lg navbar-light'>
           <div>
-            <Link to="/">
-              <span className="navbar-brand navbar">NBA Roster Manager</span>
+            <Link to='/'>
+              <span className='navbar-brand navbar'>NBA Roster Manager</span>
             </Link>
           </div>
           <div>
             <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon" />
+              className='navbar-toggler'
+              type='button'
+              data-toggle='collapse'
+              data-target='#navbarNav'
+              aria-controls='navbarNav'
+              aria-expanded='false'
+              aria-label='Toggle navigation'>
+              <span className='navbar-toggler-icon' />
             </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="top-nav">
-                <li className="nav-item active">
+            <div className='collapse navbar-collapse' id='navbarNav'>
+              <ul className='top-nav'>
+                <li className='nav-item active'>
                   {this.state.isLoggedIn === true && (
-                    <Link to="/players">
-                      <h3 className="home">Browse</h3>
+                    <Link to='/players'>
+                      <h3 className='home'>Browse</h3>
                     </Link>
                   )}
-                  <span className="sr-only">(current)</span>
+                  <span className='sr-only'>(current)</span>
                 </li>
-                <li className="nav-items">
+                <li className='nav-items'>
                   {this.state.isLoggedIn === true && (
-                    <Link to="/my-players">
-                      <h3 className="home">MyPlayers</h3>
+                    <Link to='/my-players'>
+                      <h3 className='home'>MyPlayers</h3>
                     </Link>
                   )}
                 </li>
 
-                <li className="nav-item active">
+                <li className='nav-item active'>
                   {this.state.isLoggedIn === true && (
-                    <Link to="/my-teams">
-                      <h3 className="home">MyTeams</h3>
+                    <Link to='/my-teams'>
+                      <h3 className='home'>MyTeams</h3>
                     </Link>
                   )}
-                  <span className="sr-only" />
+                  <span className='sr-only' />
                 </li>
-                <li className="nav-item active">
-                  <a className="nav-link">
+                <li className='nav-item active'>
+                  <a className='nav-link'>
                     {this.state.isLoggedIn === false && (
-                      <Link to="/users/signup">
-                        <h3 className="home">Sign Up</h3>
+                      <Link to='/users/signup'>
+                        <h3 className='home'>Sign Up</h3>
                       </Link>
                     )}
-                    <span className="sr-only" />
+                    <span className='sr-only' />
                   </a>
                 </li>
-                <li className="nav-item active">
-                  <a className="nav-link">
+                <li className='nav-item active'>
+                  <a className='nav-link'>
                     {this.state.isLoggedIn === false && (
-                      <Link to="/users/login">
-                        <h3 className="home">Log In</h3>
+                      <Link to='/users/login'>
+                        <h3 className='home'>Log In</h3>
                       </Link>
                     )}
-                    <span className="sr-only" />
+                    <span className='sr-only' />
                   </a>
                 </li>
-                <li className="nav-item active">
-                  <a className="nav-link">
+                <li className='nav-item active'>
+                  <a className='nav-link'>
                     {this.state.isLoggedIn === true && (
-                      <Link to="/users/login" onClick={this.handleLogOut}>
-                        <h3 className="home">Log Out</h3>
+                      <Link to='/users/login' onClick={this.handleLogOut}>
+                        <h3 className='home'>Log Out</h3>
                       </Link>
                     )}
-                    <span className="sr-only" />
+                    <span className='sr-only' />
                   </a>
                 </li>
               </ul>
@@ -175,59 +174,59 @@ class App extends Component {
 
         <Switch>
           <Route
-            path="/"
+            path='/'
             exact
             render={props => (
               <Home {...props} isLoggedIn={this.state.isLoggedIn} />
             )}
           />
           <Route
-            path="/players"
+            path='/players'
             render={props => (
               <Players {...props} isLoggedIn={this.state.isLoggedIn} />
             )}
           />
-          <Route path="/my-players" render={() => <MyPlayerList />} />
+          <Route path='/my-players' render={() => <MyPlayerList />} />
           <Route
-            path="/my-teams"
+            path='/my-teams'
             render={props => (
               <MyTeamList {...props} isLoggedIn={this.state.isLoggedIn} />
             )}
           />
-          <Route path="/team/:teamId" render={props => <Team {...props} />} />
-          <Route path="/newTeam" render={props => <NewTeamForm {...props} />} />
+          <Route path='/team/:teamId' render={props => <Team {...props} />} />
+          <Route path='/newTeam' render={props => <NewTeamForm {...props} />} />
           <Route
-            path="/playerShow/:personId/:showAddButton"
+            path='/playerShow/:personId/:showAddButton'
             render={props => (
               <PlayerShow {...props} isLoggedIn={this.state.isLoggedIn} />
             )}
           />
           <Route
-            path="/editTeam/:teamId"
+            path='/editTeam/:teamId'
             render={props => <EditTeamForm {...props} />}
           />
           <Route
-            path="/deletePlayer/:id"
+            path='/deletePlayer/:id'
             render={props => <RemovePlayerFromList {...props} />}
           />
           <Route
-            path="/addPlayerToList/:personId"
+            path='/addPlayerToList/:personId'
             render={props => <AddPlayerToList {...props} />}
           />
           <Route
-            path="/addPlayerToTeam/:personId"
+            path='/addPlayerToTeam/:personId'
             render={props => <TeamTable {...props} />}
           />
           <Route
-            path="/draftPlayerToTeam/:teamId/:id"
+            path='/draftPlayerToTeam/:teamId/:id'
             render={props => <AddPlayerToTeam {...props} />}
           />
           <Route
-            path="/removePlayerFromTeam/:teamId/:id"
+            path='/removePlayerFromTeam/:teamId/:id'
             render={props => <RemovePlayerFromTeam {...props} />}
           />
           <Route
-            path="/users/signup"
+            path='/users/signup'
             render={props => (
               <SignUpForm
                 {...props}
@@ -238,7 +237,7 @@ class App extends Component {
             )}
           />
           <Route
-            path="/users/login"
+            path='/users/login'
             render={props => (
               <LogInForm
                 {...props}
@@ -248,19 +247,66 @@ class App extends Component {
               />
             )}
           />
+          {/* <Link to={`/makePlayerStarter/${player.personId}/`}>
+                    <h4 className='flex-item'>Start</h4>
+                  </Link> */}
+          <Route
+            path='/makePlayerStarter/:teamId/:personId'
+            render={props => <StartPlayer {...props} />}
+          />
+          <Route
+            path='/deletePlayerStarter/:teamId/:personId'
+            render={props => <RemoveStarterPlayer {...props} />}
+          />
         </Switch>
       </div>
     );
   }
 }
 
+const StartPlayer = props => {
+  axios
+    .put(
+      serverUrl +
+        '/teams/' +
+        props.match.params.teamId +
+        '/startPlayer/' +
+        props.match.params.personId
+    )
+    .then(res => {
+      props.history.push(`/team/${props.match.params.teamId}`);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  return <div />;
+};
+
+const RemoveStarterPlayer = props => {
+  axios
+    .put(
+      serverUrl +
+        '/teams/' +
+        props.match.params.teamId +
+        '/removeStarterPlayer/' +
+        props.match.params.personId
+    )
+    .then(res => {
+      props.history.push(`/team/${props.match.params.teamId}`);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  return <div />;
+};
+
 const AddPlayerToTeam = props => {
   axios
     .put(
       serverUrl +
-        "/teams/" +
+        '/teams/' +
         props.match.params.teamId +
-        "/add/" +
+        '/add/' +
         props.match.params.id
     )
     .then(res => {
@@ -273,7 +319,7 @@ const AddPlayerToTeam = props => {
           alert(res.data.success);
         }
       }, 500);
-      props.history.push("/my-teams");
+      props.history.push('/my-teams');
     })
     .catch(err => {
       console.log(err);
@@ -283,9 +329,9 @@ const AddPlayerToTeam = props => {
 
 const RemovePlayerFromList = props => {
   axios
-    .delete(serverUrl + "/players/" + props.match.params.id)
+    .delete(serverUrl + '/players/' + props.match.params.id)
     .then(res => {
-      props.history.push("/my-players");
+      props.history.push('/my-players');
     })
     .catch(err => {
       console.log(err);
@@ -297,16 +343,16 @@ const RemovePlayerFromTeam = props => {
   axios
     .put(
       serverUrl +
-        "/teams/" +
+        '/teams/' +
         props.match.params.teamId +
-        "/delete/" +
+        '/delete/' +
         props.match.params.id
     )
     .then(res => {
       if (res.data.removedPlayer) {
         alert(res.data.removedPlayer);
       }
-      props.history.push("/my-teams");
+      props.history.push('/my-teams');
     })
     .catch(err => {
       console.log(err);
@@ -319,8 +365,10 @@ const AddPlayerToList = props => {
     player => player.personId === props.match.params.personId
   );
 
+  playerMatch.isStarter = '0';
+
   axios
-    .post(serverUrl + "/players/", playerMatch)
+    .post(serverUrl + '/players/', playerMatch)
     .then(res => {
       setTimeout(() => {
         res.data.data
@@ -336,7 +384,7 @@ const AddPlayerToList = props => {
             );
       }, 500);
 
-      props.history.push("/players");
+      props.history.push('/players');
     })
     .catch(err => {
       console.log(err);
