@@ -1,25 +1,49 @@
 .rosterItem {
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-  width: 30%;
+  margin: 1% auto;
+}
+
+.rosterItem>span {
+  flex-grow: 1
+}
+
+.rosterItem>.flex-item {
+  flex-grow: 0;
 }
 
 .card-title {
   color: var(--main-secondary-color);
 }
+
 .card-title:active {
   text-decoration: underline;
 }
 
 .team-show-header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-  padding: 2%;
+}
+
+.team-show-header>span {
+  flex-grow: 1
+}
+
+.team-show-header>.flex-item {
+  flex-grow: 0;
 }
 
 .rosterItem:hover {
   text-decoration: underline;
+}
+
+.card-text {
+  padding: 2%;
+}
+
+.alt-color {
+  color: var(--main-secondary-color);
 }

@@ -20,6 +20,7 @@ img {
   background: var(--main-secondary-color);
   margin-bottom: 1%;
 }
+
 .navbar.navbar-brand {
   color: #fff;
   font-size: 3em;
@@ -30,9 +31,11 @@ img {
   color: var(--main-primary-color);
   text-decoration: none;
 }
+
 .navbar-toggler {
   background-color: #fff;
 }
+
 .top-nav {
   list-style-type: none;
   display: flex;

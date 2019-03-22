@@ -55,6 +55,9 @@ class MyTeamList extends Component {
       <div className='row'>
         <HomePhotos />
         <div className='col-6'>
+          <div className='player-title-show'>
+            <h1 className='search-title'>My Team List</h1>
+          </div>
           <PlayerSearchForm searchTeam={this.searchTeam} />
           <Link to='/newTeam'>
             <button className='btn btn-info'>Create New Team</button>
