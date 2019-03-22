@@ -43,7 +43,6 @@ class TeamTable extends Component {
     this.getTeams();
   }
   render() {
-    const image = this.props.photos;
     return (
       <div className='row'>
         <div className='thiscard w-75 offset</div>-1'>
@@ -59,10 +58,11 @@ class TeamTable extends Component {
                 <h2>Where should {this.state.player.firstName} go? </h2>
                 {this.state.teams.map((team, i) => (
                   <Link
+                    key={i}
                     to={`/draftPlayerToTeam/${team._id}/${
                       this.state.player._id
                     }`}>
-                    <h2 key={i}>
+                    <h2 className='teamName' key={i}>
                       {team.fullName} &nbsp; {team.teamRoster.length}/12
                     </h2>
                   </Link>
@@ -70,6 +70,7 @@ class TeamTable extends Component {
               </div>
               <div className='col-6'>
                 <img
+                  alt='player'
                   className='playerPhoto'
                   src={`https://nba-players.herokuapp.com/players/${
                     this.state.player.lastName

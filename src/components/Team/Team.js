@@ -44,41 +44,47 @@ export default class Team extends Component {
 
   render() {
     return (
-      <div className='row'>
-        <div className='card w-75 offset-1'>
-          <div className='card-body'>
-            <div className='row team-show-header'>
-              <h1 className='card-title'>{this.state.team.fullName}</h1>
-            </div>
+      <div className='card w-75 offset-1'>
+        <div className='card-body'>
+          <div className='row team-show-header'>
+            <h1 className='card-title flex-item'>{this.state.team.fullName}</h1>
+            <span />
             <Link to={`/editTeam/${this.state.team._id}`}>
-              <button className='btn btn-danger'>Edit</button>
+              <button className='btn btn-danger flex-item'>Edit</button>
             </Link>
-
-            <button onClick={this.deleteTeam} className='btn btn-danger'>
+            <button
+              onClick={this.deleteTeam}
+              className='btn btn-warning flex-item'>
               Delete
             </button>
-
-            <h3 className='card-title'>Roster</h3>
-            <ul className='card-text'>
-              {this.state.team.teamRoster &&
-                this.state.team.teamRoster.map((player, i) => (
-                  <Link to={`/playerShow/${player.personId}`}>
-                    <li key={i} className='rosterItem'>
-                      <h5>
-                        {player.lastName}, {player.firstName}
-                      </h5>
-                      <h5>{player.pos[0]}</h5>
-                      <Link
-                        to={`/removePlayerFromTeam/${this.state.team._id}/${
-                          player._id
-                        }`}>
-                        <button className='btn btn-info'>remove</button>
-                      </Link>
-                    </li>
-                  </Link>
-                ))}
-            </ul>
           </div>
+
+          <h3 className='card-title'>Roster</h3>
+          <ul className='card-text'>
+            {this.state.team.teamRoster &&
+              this.state.team.teamRoster.map((player, i) => (
+                <li key={i} className='rosterItem'>
+                  <h5 className='flex-item'>
+                    {player.lastName}, {player.firstName}
+                  </h5>
+                  &nbsp;&nbsp;&nbsp;
+                  <h4 className='flex-item alt-color'>{player.pos[0]}</h4>
+                  <span />
+                  <Link to={`/playerShow/${player.personId}/${false}`}>
+                    <h4 className='flex-item'>🏀</h4>
+                  </Link>
+                  &nbsp;&nbsp;&nbsp;
+                  <Link
+                    to={`/removePlayerFromTeam/${this.state.team._id}/${
+                      player._id
+                    }`}>
+                    <button className='btn btn-warning flex-item'>
+                      remove
+                    </button>
+                  </Link>
+                </li>
+              ))}
+          </ul>
         </div>
       </div>
     );

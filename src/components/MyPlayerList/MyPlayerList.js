@@ -55,27 +55,31 @@ class MyPlayerList extends Component {
       <div className='row'>
         <HomePhotos />
         <div className='col-6'>
+          <div className='player-title-show'>
+            <h1 className='search-title'>My Player List</h1>
+          </div>
           <PlayerSearchForm searchPlayer={this.searchPlayer} />
           {this.players.map((player, i) => {
             return (
               <div className='list-group' key={i}>
-                <Link to={`/playerShow/${player.personId}`}>
-                  <button className='list-group-item list-group-item-action'>
-                    <div className='row'>
-                      <div className='double-column'>
-                        <h3 className='playerName'>
-                          {player.lastName + ', ' + player.firstName}
-                        </h3>
-                      </div>
-                      <Link to={`/addPlayerToTeam/${player._id}`}>
-                        <button className='btn btn-info'>draft player</button>
-                      </Link>
-                      <Link to={`/deletePlayer/${player._id}`}>
-                        <button className='btn btn-info'>remove</button>
-                      </Link>
+                <div className='list-group-item list-group-item-action'>
+                  <div className='row'>
+                    <div className='double-column'>
+                      <h4 className='playerName'>
+                        {player.lastName + ', ' + player.firstName}
+                      </h4>
                     </div>
-                  </button>
-                </Link>
+                    <Link to={`/playerShow/${player.personId}/${false}`}>
+                      <h4>🏀</h4>
+                    </Link>
+                    <Link to={`/addPlayerToTeam/${player._id}`}>
+                      <button className='btn btn-info'>draft player</button>
+                    </Link>
+                    <Link to={`/deletePlayer/${player._id}`}>
+                      <button className='btn btn-warning'>remove</button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             );
           })}

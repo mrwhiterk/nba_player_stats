@@ -34,35 +34,28 @@ class App extends Component {
               data-target='#navbarNav'
               aria-controls='navbarNav'
               aria-expanded='false'
-              aria-label='Toggle navigation'
-            >
+              aria-label='Toggle navigation'>
               <span className='navbar-toggler-icon' />
             </button>
             <div className='collapse navbar-collapse' id='navbarNav'>
               <ul className='top-nav'>
                 <li className='nav-item active'>
-                  <a className='nav-link'>
-                    <Link to='/players'>
-                      <h5 className='navLinks'>Browse</h5>
-                    </Link>
-                    <span className='sr-only'>(current)</span>
-                  </a>
+                  <Link to='/players'>
+                    <h5 className='navLinks nav-link'>Browse</h5>
+                  </Link>
+                  <span className='sr-only'>(current)</span>
                 </li>
                 <li className='nav-items'>
-                  <a className='nav-link'>
-                    <Link to='/my-players'>
-                      <h5 className='navLinks'>MyPlayers</h5>
-                    </Link>
-                  </a>
+                  <Link to='/my-players'>
+                    <h5 className='navLinks nav-link'>MyPlayers</h5>
+                  </Link>
                 </li>
 
                 <li className='nav-item active'>
-                  <a className='nav-link'>
-                    <Link to='/my-teams'>
-                      <h5 className='navLinks'>MyTeams</h5>
-                    </Link>
-                    <span className='sr-only' />
-                  </a>
+                  <Link to='/my-teams'>
+                    <h5 className='navLinks nav-link'>MyTeams</h5>
+                  </Link>
+                  <span className='sr-only' />
                 </li>
               </ul>
             </div>
@@ -77,7 +70,7 @@ class App extends Component {
           <Route path='/team/:teamId' render={props => <Team {...props} />} />
           <Route path='/newTeam' render={props => <NewTeamForm {...props} />} />
           <Route
-            path='/playerShow/:personId'
+            path='/playerShow/:personId/:showAddButton'
             render={props => <PlayerShow {...props} />}
           />
           <Route
