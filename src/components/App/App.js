@@ -115,67 +115,22 @@ class App extends Component {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="top-nav">
                 <li className="nav-item active">
-                  <a className="nav-link">
-                    {this.state.isLoggedIn === true && (
-                      <Link to="/players">
-                        <h3 className="home">Browse</h3>
-                      </Link>
-                    )}
-                    <span className="sr-only">(current)</span>
-                  </a>
+                  <Link to="/players">
+                    <h5 className="navLinks nav-link">Browse</h5>
+                  </Link>
+                  <span className="sr-only">(current)</span>
                 </li>
                 <li className="nav-items">
-                  <a className="nav-link">
-                    {this.state.isLoggedIn === true && (
-                      <Link to="/my-players">
-                        <h3 className="home">MyPlayers</h3>
-                      </Link>
-                    )}
-                  </a>
+                  <Link to="/my-players">
+                    <h5 className="navLinks nav-link">MyPlayers</h5>
+                  </Link>
                 </li>
 
                 <li className="nav-item active">
-                  <a className="nav-link">
-                    {this.state.isLoggedIn === true && (
-                      <Link to="/my-teams">
-                        <h3 className="home">MyTeams</h3>
-                      </Link>
-                    )}
-                    <span className="sr-only" />
-                  </a>
-                </li>
-
-                <li className="nav-item active">
-                  <a className="nav-link">
-                    {this.state.isLoggedIn === false && (
-                      <Link to="/users/signup">
-                        <h3 className="home">Sign Up</h3>
-                      </Link>
-                    )}
-                    <span className="sr-only" />
-                  </a>
-                </li>
-
-                <li className="nav-item active">
-                  <a className="nav-link">
-                    {this.state.isLoggedIn === false && (
-                      <Link to="/users/login">
-                        <h3 className="home">Log In</h3>
-                      </Link>
-                    )}
-                    <span className="sr-only" />
-                  </a>
-                </li>
-
-                <li className="nav-item active">
-                  <a className="nav-link">
-                    {this.state.isLoggedIn === true && (
-                      <Link to="/users/login" onClick={this.handleLogOut}>
-                        <h3 className="home">Log Out</h3>
-                      </Link>
-                    )}
-                    <span className="sr-only" />
-                  </a>
+                  <Link to="/my-teams">
+                    <h5 className="navLinks nav-link">MyTeams</h5>
+                  </Link>
+                  <span className="sr-only" />
                 </li>
               </ul>
             </div>
@@ -184,24 +139,7 @@ class App extends Component {
 
         <Switch>
           <Route
-            path="/"
-            exact
-            render={props => (
-              <Home {...props} isLoggedIn={this.state.isLoggedIn} />
-            )}
-          />
-          <Route path="/players" render={() => <Players />} />
-          <Route path="/my-players" render={() => <MyPlayerList />} />
-          <Route
-            path="/my-teams"
-            render={props => (
-              <MyTeamList {...props} isLoggedIn={this.state.isLoggedIn} />
-            )}
-          />
-          <Route path="/team/:teamId" render={props => <Team {...props} />} />
-          <Route path="/newTeam" render={props => <NewTeamForm {...props} />} />
-          <Route
-            path="/playerShow/:personId"
+            path="/playerShow/:personId/:showAddButton"
             render={props => <PlayerShow {...props} />}
           />
           <Route

@@ -21,12 +21,12 @@
   text-align: left;
   color: var(--main-secondary-color);
 }
+
 .add-button {
-  vertical-align: bottom;
   align-content: center;
-  margin-left: 12%;
   padding-bottom: 5%;
 }
+
 .col-6 {
   position: relative;
   padding: 5%;
@@ -37,6 +37,7 @@
   right: 10;
   position: absolute;
 }
+
 .card-body {
   padding-bottom: 0;
 }

@@ -8,26 +8,22 @@ export default class Home extends Component {
     return (
       <div className="row">
         <div className="card w-75 offset-1">
-          <div className="card-body col-6">
-            <h4 className="card-title">Welcome to NBA Roster Manager</h4>
-            <p className="card-text">
+          <div className="card-body">
+            <h1 className="card-title">Welcome to NBA Roster Manager</h1>
+            <h2 className="card-text">
               Create and manage all your favorite NBA fantasy teams
-            </p>
-            <p className="card-text">
-              View stats, and other info from all your favorite athletes
-            </p>
-            {this.props.isLoggedIn === true && (
-              <div className="quick-actions">
-                <Link to="/players">
-                  <button className="btn btn-danger">
-                    Start Adding Players
-                  </button>
-                </Link>
-                <Link to="/my-players">
-                  <button className="btn btn-danger">View Your Players</button>
-                </Link>
-              </div>
-            )}
+            </h2>
+            <h2 className="card-title">
+              View stats, and other info from all your favorite NBA players
+            </h2>
+            <div className="quick-actions">
+              <Link to="/players">
+                <button className="btn btn-danger">Start Adding Players</button>
+              </Link>
+              <Link to="/my-players">
+                <button className="btn btn-danger">View Your Players</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

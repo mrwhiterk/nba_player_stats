@@ -8,22 +8,24 @@
   margin-left: 2%;
 }
 
-.list-group-item:hover {
-  background-color: var(--main-primary-highlight-color);
-}
-
 .double-column {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
   flex: 2;
 }
+
 .row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
 }
+
 .playerName {
   margin-left: 3%;
+}
+
+.btn-info {
+  margin-left: 10px;
 }
