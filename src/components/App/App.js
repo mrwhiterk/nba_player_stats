@@ -54,7 +54,7 @@ class App extends Component {
   handleSignUp(e) {
     e.preventDefault();
     axios
-      .post('http://localhost:3001/users/signup', {
+      .post(serverUrl + '/users/signup', {
         email: this.state.email,
         password: this.state.password,
       })
@@ -79,7 +79,7 @@ class App extends Component {
   handleLogIn(e) {
     e.preventDefault();
     axios
-      .post('http://localhost:3001/users/login', {
+      .post(serverUrl + '/users/login', {
         email: this.state.email,
         password: this.state.password,
       })
