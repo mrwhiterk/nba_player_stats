@@ -36,14 +36,14 @@
   flex-grow: 0;
 }
 
-.rosterItem:hover {
-  text-decoration: underline;
-}
-
 .card-text {
   padding: 2%;
 }
 
 .alt-color {
   color: var(--main-secondary-color);
+}
+
+.btn-warning {
+  background-color: yellow !important;
 }

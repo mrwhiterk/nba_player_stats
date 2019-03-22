@@ -54,11 +54,14 @@ class PlayerShow extends Component {
                 {attendedUni && (
                   <h2> College: {this.state.player.collegeName}</h2>
                 )}
-                <div className='add-button'>
-                  <Link to={`/addPlayerToList/${this.state.player.personId}`}>
-                    <button className='btn btn-info'>Add to My List</button>
-                  </Link>
-                </div>
+
+                {this.props.match.params.showAddButton === 'true' && (
+                  <h2 className='add-button'>
+                    <Link to={`/addPlayerToList/${this.state.player.personId}`}>
+                      <button className='btn btn-info'>Add to My List</button>
+                    </Link>
+                  </h2>
+                )}
               </div>
               <div className='col-6'>
                 <img

@@ -54,7 +54,7 @@ export default class Team extends Component {
             </Link>
             <button
               onClick={this.deleteTeam}
-              className='btn btn-danger flex-item'>
+              className='btn btn-warning flex-item'>
               Delete
             </button>
           </div>
@@ -64,19 +64,23 @@ export default class Team extends Component {
             {this.state.team.teamRoster &&
               this.state.team.teamRoster.map((player, i) => (
                 <li key={i} className='rosterItem'>
-                  <Link to={`/playerShow/${player.personId}`}>
-                    <h5 className='flex-item'>
-                      {player.lastName}, {player.firstName}
-                    </h5>
-                  </Link>
+                  <h5 className='flex-item'>
+                    {player.lastName}, {player.firstName}
+                  </h5>
                   &nbsp;&nbsp;&nbsp;
                   <h4 className='flex-item alt-color'>{player.pos[0]}</h4>
                   <span />
+                  <Link to={`/playerShow/${player.personId}/${false}`}>
+                    <h4 className='flex-item'>🏀</h4>
+                  </Link>
+                  &nbsp;&nbsp;&nbsp;
                   <Link
                     to={`/removePlayerFromTeam/${this.state.team._id}/${
                       player._id
                     }`}>
-                    <button className='btn btn-danger flex-item'>remove</button>
+                    <button className='btn btn-warning flex-item'>
+                      remove
+                    </button>
                   </Link>
                 </li>
               ))}

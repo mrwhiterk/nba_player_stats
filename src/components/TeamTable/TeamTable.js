@@ -58,6 +58,7 @@ class TeamTable extends Component {
                 <h2>Where should {this.state.player.firstName} go? </h2>
                 {this.state.teams.map((team, i) => (
                   <Link
+                    key={i}
                     to={`/draftPlayerToTeam/${team._id}/${
                       this.state.player._id
                     }`}>

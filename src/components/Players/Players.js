@@ -51,7 +51,7 @@ class Players extends Component {
                     {player.lastName + ', ' + player.firstName}
                   </h4>
                   <span />
-                  <Link to={`/playerShow/${player.personId}`}>
+                  <Link to={`/playerShow/${player.personId}/${true}`}>
                     <h4 className='flex-item'>🏀</h4>
                   </Link>
                   <Link to={`/addPlayerToList/${player.personId}`}>

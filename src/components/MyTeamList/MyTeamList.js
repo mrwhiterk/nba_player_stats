@@ -7,8 +7,6 @@ import HomePhotos from '../HomePhotos/HomePhotos';
 import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
 import { Link } from 'react-router-dom';
 
-import icons from 'glyphicons';
-
 class MyTeamList extends Component {
   constructor(props) {
     super(props);

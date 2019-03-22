@@ -6,7 +6,6 @@ import axios from 'axios';
 import './MyPlayerList.css';
 import HomePhotos from '../HomePhotos/HomePhotos';
 import PlayerSearchForm from '../PlayerSearchForm/PlayerSearchForm';
-import icons from 'glyphicons';
 
 class MyPlayerList extends Component {
   constructor(props) {
@@ -70,14 +69,14 @@ class MyPlayerList extends Component {
                         {player.lastName + ', ' + player.firstName}
                       </h4>
                     </div>
-                    <Link to={`/playerShow/${player.personId}`}>
+                    <Link to={`/playerShow/${player.personId}/${false}`}>
                       <h4>🏀</h4>
                     </Link>
                     <Link to={`/addPlayerToTeam/${player._id}`}>
                       <button className='btn btn-info'>draft player</button>
                     </Link>
                     <Link to={`/deletePlayer/${player._id}`}>
-                      <button className='btn btn-info'>remove</button>
+                      <button className='btn btn-warning'>remove</button>
                     </Link>
                   </div>
                 </div>

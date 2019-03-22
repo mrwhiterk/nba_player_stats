@@ -41,3 +41,7 @@ img {
   display: flex;
   padding-top: 8%;
 }
+
+.btn-info {
+  background-color: var(--main-secondary-color);
+}
