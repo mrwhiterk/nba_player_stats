@@ -37,3 +37,6 @@
 .team-table {
   height: 275px;
 }
+.teamName:hover {
+  text-decoration: underline;
+}

@@ -38,6 +38,9 @@ class Players extends Component {
       <div className='row'>
         <HomePhotos />
         <div className='col-6'>
+          <div className='player-title-show'>
+            <h1 className='search-title'>Browse Players</h1>
+          </div>
           <PlayerSearchForm searchPlayer={this.searchPlayer} />
           {this.getPlayers().map((player, i) => {
             return (
@@ -46,7 +49,6 @@ class Players extends Component {
                   href='#'
                   className='list-group-item list-group-item-action'>
                   <h3>{player.lastName + ', ' + player.firstName}</h3>
-
                   <Link to={`/playerShow/${player.personId}`}>
                     <p>{icons.magnifyingGlass}</p>
                   </Link>

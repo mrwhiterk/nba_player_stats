@@ -56,6 +56,9 @@ class MyPlayerList extends Component {
       <div className='row'>
         <HomePhotos />
         <div className='col-6'>
+          <div className='player-title-show'>
+            <h1 className='search-title'>My Player List</h1>
+          </div>
           <PlayerSearchForm searchPlayer={this.searchPlayer} />
           {this.players.map((player, i) => {
             return (

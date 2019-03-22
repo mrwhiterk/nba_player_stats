@@ -43,7 +43,6 @@ class TeamTable extends Component {
     this.getTeams();
   }
   render() {
-    const image = this.props.photos;
     return (
       <div className='row'>
         <div className='thiscard w-75 offset</div>-1'>
@@ -61,8 +60,9 @@ class TeamTable extends Component {
                   <Link
                     to={`/draftPlayerToTeam/${team._id}/${
                       this.state.player._id
-                    }`}>
-                    <h2 key={i}>
+                    }`}
+                  >
+                    <h2 className='teamName' key={i}>
                       {team.fullName} &nbsp; {team.teamRoster.length}/12
                     </h2>
                   </Link>

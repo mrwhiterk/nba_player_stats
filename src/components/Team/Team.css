@@ -9,6 +9,9 @@
 .card-title {
   color: var(--main-secondary-color);
 }
+.card-title:active {
+  text-decoration: underline;
+}
 
 .team-show-header {
   display: flex;
@@ -20,4 +23,3 @@
 .rosterItem:hover {
   text-decoration: underline;
 }
-
