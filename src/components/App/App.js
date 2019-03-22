@@ -112,62 +112,51 @@ class App extends Component {
               <span className='navbar-toggler-icon' />
             </button>
             <div className='collapse navbar-collapse' id='navbarNav'>
-              <ul className='top-nav'>
-                <li className='nav-item active'>
+              <div className='top-nav'>
+                <div className='nav-button'>
                   {this.state.isLoggedIn === true && (
                     <Link to='/players'>
-                      <h3 className='home'>Browse</h3>
+                      <h3 className='nav-link'>Browse</h3>
                     </Link>
                   )}
-                  <span className='sr-only'>(current)</span>
-                </li>
-                <li className='nav-items'>
+                </div>
+                <div className='nav-button'>
                   {this.state.isLoggedIn === true && (
                     <Link to='/my-players'>
-                      <h3 className='home'>MyPlayers</h3>
+                      <h3 className='nav-link'>MyPlayers</h3>
                     </Link>
                   )}
-                </li>
+                </div>
 
-                <li className='nav-item active'>
+                <div className='nav-button'>
                   {this.state.isLoggedIn === true && (
                     <Link to='/my-teams'>
-                      <h3 className='home'>MyTeams</h3>
+                      <h3 className='nav-link'>MyTeams</h3>
                     </Link>
                   )}
-                  <span className='sr-only' />
-                </li>
-                <li className='nav-item active'>
-                  <a className='nav-link'>
-                    {this.state.isLoggedIn === false && (
-                      <Link to='/users/signup'>
-                        <h3 className='home'>Sign Up</h3>
-                      </Link>
-                    )}
-                    <span className='sr-only' />
-                  </a>
-                </li>
-                <li className='nav-item active'>
-                  <a className='nav-link'>
-                    {this.state.isLoggedIn === false && (
-                      <Link to='/users/login'>
-                        <h3 className='home'>Log In</h3>
-                      </Link>
-                    )}
-                    <span className='sr-only' />
-                  </a>
-                </li>
-                <li className='nav-item active'>
-                  <a className='nav-link'>
-                    {this.state.isLoggedIn === true && (
-                      <Link to='/users/login' onClick={this.handleLogOut}>
-                        <h3 className='home'>Log Out</h3>
-                      </Link>
-                    )}
-                    <span className='sr-only' />
-                  </a>
-                </li>
-              </ul>
+                </div>
+                <div className='nav-button'>
+                  {this.state.isLoggedIn === false && (
+                    <Link to='/users/signup'>
+                      <h3 className='nav-link'> Sign Up </h3>
+                    </Link>
+                  )}
+                </div>
+                <div className='nav-button'>
+                  {this.state.isLoggedIn === false && (
+                    <Link to='/users/login'>
+                      <h3 className='nav-link'> Log In </h3>
+                    </Link>
+                  )}
+                </div>
+                <div className='nav-button'>
+                  {this.state.isLoggedIn === true && (
+                    <Link to='/users/login' onClick={this.handleLogOut}>
+                      <h3 className='nav-link'> Log Out </h3>
+                    </Link>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </nav>
