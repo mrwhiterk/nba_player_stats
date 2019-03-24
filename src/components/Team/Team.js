@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import serverUrl from '../constants';
 import axios from 'axios';
-
 import './Team.css';
 import { Link } from 'react-router-dom';
-
-import icon from 'glyphicons';
 
 export default class Team extends Component {
   constructor(props) {
@@ -85,12 +82,19 @@ export default class Team extends Component {
                   </div>
                   <h4 className='flex-item pos alt-color'>{player.pos[0]}</h4>
                   &nbsp;&nbsp;&nbsp;
-                  {/* <p>{parseInt(player.isStarter) === 1 && '5️⃣'}</p> */}
+                  <p>{parseInt(player.isStarter) === 1 && '5️⃣'}</p>
                   <span />
                   <Link to={`/playerShow/${player.personId}/${false}`}>
-                    <h4 className='flex-item'>🏀</h4>
+                    <h4 className='flex-item'>
+                      <span
+                        role='img'
+                        aria-label='basketball'
+                        aria-labelledby='team'>
+                        🏀
+                      </span>
+                    </h4>
                   </Link>
-                  {/* {parseInt(player.isStarter) === 0 ? (
+                  {parseInt(player.isStarter) === 0 ? (
                     <Link
                       to={`/makePlayerStarter/${this.state.team._id}/${
                         player.personId
@@ -104,7 +108,7 @@ export default class Team extends Component {
                       }/`}>
                       <button className='flex-item btn-info'>bench</button>
                     </Link>
-                  )} */}
+                  )}
                   &nbsp;&nbsp;&nbsp;
                   <Link
                     to={`/removePlayerFromTeam/${this.state.team._id}/${

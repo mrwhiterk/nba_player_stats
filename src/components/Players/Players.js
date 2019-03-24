@@ -54,7 +54,14 @@ class Players extends Component {
                   </Link>
                   <span />
                   <Link to={`/playerShow/${player.personId}/${true}`}>
-                    <h4 className='flex-item'>🏀</h4>
+                    <h4 className='flex-item'>
+                      <span
+                        role='img'
+                        aria-label='basketball'
+                        aria-labelledby='team'>
+                        🏀
+                      </span>
+                    </h4>
                   </Link>
                   <Link to={`/addPlayerToList/${player.personId}`}>
                     <button className='btn btn-info flex-item'>

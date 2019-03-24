@@ -72,7 +72,14 @@ class MyTeamList extends Component {
                     </Link>
                     <span />
                     <Link to={`/team/${team._id}`}>
-                      <h4 className='flex-item'>🏀</h4>
+                      <h4 className='flex-item'>
+                        <span
+                          role='img'
+                          aria-label='basketball'
+                          aria-labelledby='team'>
+                          🏀
+                        </span>
+                      </h4>
                     </Link>
                     &nbsp;
                     <h4 className='list-group-item-name flex-item'>

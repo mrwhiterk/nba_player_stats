@@ -72,7 +72,14 @@ class MyPlayerList extends Component {
                       </Link>
                     </div>
                     <Link to={`/playerShow/${player.personId}/${false}`}>
-                      <h4>🏀</h4>
+                      <h4>
+                        <span
+                          role='img'
+                          aria-label='basketball'
+                          aria-labelledby='team'>
+                          🏀
+                        </span>
+                      </h4>
                     </Link>
                     <Link to={`/addPlayerToTeam/${player._id}`}>
                       <button className='btn btn-info'>draft player</button>
