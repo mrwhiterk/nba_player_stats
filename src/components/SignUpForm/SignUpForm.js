@@ -3,8 +3,6 @@ import './SignUpForm';
 
 class SignUpForm extends Component {
   render() {
-    console.log(this.props.isLoggedIn);
-
     return (
       <div className='auth'>
         <h2>Sign Up</h2>

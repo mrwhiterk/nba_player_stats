@@ -236,9 +236,6 @@ class App extends Component {
               />
             )}
           />
-          {/* <Link to={`/makePlayerStarter/${player.personId}/`}>
-                    <h4 className='flex-item'>Start</h4>
-                  </Link> */}
           <Route
             path='/makePlayerStarter/:teamId/:personId'
             render={props => <StartPlayer {...props} />}

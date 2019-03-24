@@ -3,7 +3,6 @@ import './LogInForm.css';
 
 class LogInForm extends Component {
   render() {
-    console.log(this.props.isLoggedIn);
     return (
       <div className='auth'>
         <h2>Log In</h2>
